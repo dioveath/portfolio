@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import { BsGithub, BsLinkedin, BsYoutube} from 'react-icons/bs';
+import { MdConstruction } from 'react-icons/md';
 
 export default function Home() {
   return (
@@ -34,10 +35,11 @@ export default function Home() {
         }}></div>
 
         <p style={{"fontSize": "18px"}}>
-          Hobby game dev turned Full stack developer. I love creating things and integrating wheels in systems. 
+          Game developer turned Full stack developer. I love creating things and integrating wheels in systems. 
         </p>
 
-
+        {/* <MdConstruction size={40}/> */}
+        {/* <p> Website Under Construction </p> */}
 
         <div style={{
           "height": "30px"
