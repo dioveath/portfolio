@@ -1,9 +1,11 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import { BsGithub, BsTwitter, BsLinkedin, BsYoutube} from 'react-icons/bs';
 import { MdConstruction } from 'react-icons/md';
+import { SiItchdotio } from 'react-icons/si';
+import { CgMediaLive } from 'react-icons/cg';
 import Navbar from '../components/Navbar.js';
+import Card from '../components/Card.js';
 
 import {
   Box,
@@ -14,6 +16,8 @@ import {
   Link,
   UnorderedList,
   ListItem,
+  Stack,
+  Image,
   useColorModeValue
 } from '@chakra-ui/react';
 
@@ -46,7 +50,7 @@ export default function Home() {
 
         <Box>
           <Text fontSize="3xl" fontWeight="600"> Saroj Rai </Text>
-          <Text fontSize="xl" fontWeight="400"> dioveath (Game Developer/ Full Stack Developer) </Text>                  
+          <Text fontSize="xl" fontWeight="400"> dioveath (Game Developer / Full Stack Developer) </Text>                  
         </Box>
 
         <Box height="1rem"></Box>
@@ -78,39 +82,36 @@ export default function Home() {
         <Flex gap="4rem">
           <Link target="_blank" href="https://github.com/dioveath"><BsGithub size={30}/></Link>
           <Link target="_blank" href="https://www.linkedin.com/in/saroj-rai-11739a110/"><BsLinkedin size={30}/></Link>
+          <Link target="_blank" href="https://dioveath.itch.io"><SiItchdotio size={30}/></Link>          
           <Link target="_blank" href="https://twitter.com/dioveath"><BsTwitter size={30}/></Link>          
           <Link target="_blank" href="https://www.youtube.com/channel/UCoaAC-D62Vl9b2X2WMeUtgw"><BsYoutube size={30}/></Link>
         </Flex>
 
-        {/* <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)']}> */}
-        {/*   <Link href="https://github.com/dioveath/chc-gaming" className={styles.card}> */}
-        {/*     <Text fontSize="5xl">Charicha Gaming &rarr;</Text> */}
-        {/*     <Text> Gaming community site, focused on Competitive scene. i.e. Tournaments, Leagues, Challenges, etc </Text> */}
-        {/*   </Link> */}
+        <Box height="8rem"></Box>        
+        <Text fontSize="lg" fontWeight="500"> Highlight Works </Text>
+        <Box height="1rem"></Box>                
 
-        {/*   <Link href="https://github.com/dioveath/ci-website-nextjs" className={styles.card}> */}
-        {/*     <Text>Charicha Institute &rarr;</Text> */}
-        {/*     <Text> Worked on the Charicha Institute online ecosystem, including an Android application, a dynamic site. </Text> */}
-        {/*   </Link> */}
+        <Grid templateColumns={{sm: 'repeat(1, 1fr)', md:'repeat(2, 1fr)'}}>
 
-        {/*   <Link */}
-        {/*     href="" */}
-        {/*     className={styles.card} */}
-        {/*   > */}
-        {/*     <Text>Game Jam 2022 &rarr;</Text> */}
-        {/*     <Text>Duality Themed Puzzle Two characters are bounded to one control but in reverse. We will face interesting puzzles on the way.</Text> */}
-        {/*   </Link> */}
+          <Card
+            imgSrc="assets/chc_gaming_landing.png"
+            alt="Charicha Gaming Landing Page"
+            title="Charicha Gaming"
+            desc="Gaming community site, focused on Competitive scene. i.e. Tournaments, Leagues, Challenges, etc"
+            liveLink="https://chc-gaming.herokuapp.com/"
+            gitLink="https://github.com/dioveath/chc-gaming"
+          />
 
-        {/*   <Link */}
-        {/*     href="https://github.com/dioveath/teengine-js" */}
-        {/*     className={styles.card} */}
-        {/*   > */}
-        {/*     <Text>Teengine JS &rarr;</Text> */}
-        {/*     <Text> */}
-        {/*       My JS Game engine/framework. */}
-        {/*     </Text> */}
-        {/*   </Link> */}
-        {/* </Grid> */}
+          <Card
+            imgSrc="assets/cozzle.png"
+            alt="Cozzle Menu"
+            title="Cozzle"
+            desc="Duality Themed Puzzle Two characters are bounded to one control but in reverse. We will face interesting puzzles on the way."
+            liveLink="https://dioveath.itch.io/cozzle"
+            gitLink="https://github.com/dioveath/gamejam2022-duality"
+          />
+
+        </Grid>
       </Box>
 
       <footer className={styles.footer}>
