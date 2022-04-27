@@ -2,10 +2,12 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { BsGithub, BsTwitter, BsLinkedin, BsYoutube} from 'react-icons/bs';
 import { MdConstruction } from 'react-icons/md';
-import { SiItchdotio } from 'react-icons/si';
 import { CgMediaLive } from 'react-icons/cg';
 import Navbar from '../components/Navbar.js';
 import Card from '../components/Card.js';
+
+import { FaUnity, FaNode, FaGooglePlay } from 'react-icons/fa';
+import { SiReact, SiNodedotjs, SiExpress, SiMongodb, SiFirebase, SiJavascript, SiCsharp, SiNextdotjs, SiHeroku, SiItchdotio, SiNetlify, SiApachecordova, SiDocker } from 'react-icons/si';
 
 import {
   Box,
@@ -98,8 +100,20 @@ export default function Home() {
             alt="Charicha Gaming Landing Page"
             title="Charicha Gaming"
             desc="Gaming community site, focused on Competitive scene. i.e. Tournaments, Leagues, Challenges, etc"
-            liveLink="https://chc-gaming.herokuapp.com/"
+            liveLink={
+              <Link
+                target="_blank"
+                href="https://chc-gaming.herokuapp.com/"
+                _hover={{cursor: "pointer"}}> <SiHeroku size="28"/></Link>                          }
             gitLink="https://github.com/dioveath/chc-gaming"
+            techStack={<Flex gap="1rem">
+                                 <SiJavascript size="28"/>
+                                 <SiReact size="28"/>
+                                 <FaNode size="28"/>
+                                 <SiExpress size="28"/>
+                         <SiMongodb size="28"/>
+                         <SiDocker size="28"/>
+                               </Flex>}                          
           />
 
           <Card
@@ -107,8 +121,17 @@ export default function Home() {
             alt="Cozzle Menu"
             title="Cozzle"
             desc="Duality Themed Puzzle Two characters are bounded to one control but in reverse. We will face interesting puzzles on the way."
-            liveLink="https://dioveath.itch.io/cozzle"
+            liveLink={
+              <Link
+                target="_blank"
+                href="https://dioveath.itch.io/cozzle"
+                _hover={{cursor: "pointer"}}> <SiItchdotio size="28"/></Link>
+            }
             gitLink="https://github.com/dioveath/gamejam2022-duality"
+            techStack={<Flex gap="1rem">
+           <FaUnity size="28"/>
+           <SiCsharp size="28"/>
+         </Flex>}            
           />
 
         </Grid>

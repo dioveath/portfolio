@@ -6,10 +6,11 @@ import {
   Text,
   Flex,
   Link,
+  Box
 } from '@chakra-ui/react';
 
 
-export default function Card({ imgSrc, alt, title, desc, liveLink, gitLink, ...props}){
+export default function Card({ imgSrc, alt, title, desc, liveLink, gitLink, techStack, ...props}){
   
   return (<Stack
             maxWidth="300px"
@@ -19,6 +20,7 @@ export default function Card({ imgSrc, alt, title, desc, liveLink, gitLink, ...p
             <Image
               src={imgSrc}
               alt={alt}
+              height="200px"
               objectFit="cover"
               borderRadius="10px"
             />
@@ -27,12 +29,20 @@ export default function Card({ imgSrc, alt, title, desc, liveLink, gitLink, ...p
               <Text> {desc} </Text>              
             </Stack>
 
+            <Box
+              height="0.2rem"
+              borderBottom="1px solid gray"
+            ></Box>
+            { techStack }
+            <Box
+              height="0.2rem"
+              borderTop="1px solid gray"              
+            ></Box>
+
             <Flex gap="1rem">
-              <Link target="_blank" href={liveLink}>
-                <CgMediaLive size="24"/>
-              </Link>
+              { liveLink }
               <Link target="_blank" href={gitLink}>
-                <BsGithub size="24"/>
+                <BsGithub size="28"/>
               </Link>
             </Flex>
 
