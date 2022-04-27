@@ -1,0 +1,45 @@
+[12:44:40.112] Global cache location 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6', safe file path 'c:/personal/portfolio-site/node_modules/typescript/lib/typingsafelist.json', types map path c:/personal/portfolio-site/node_modules/typescript/lib/typesmap.json
+[12:44:40.114] Processing cache location 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6'
+[12:44:40.115] Trying to find 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/package.json'...
+[12:44:40.121] Loaded content of 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/package.json': {"private":true,"dependencies":{"types-registry":"^0.1.588"},"devDependencies":{"@types/body-parser":"^1.19.2","@types/caniuse-lite":"^1.0.1","@types/cors":"^2.8.12","@types/craco__craco":"^6.4.0","@types/depd":"^1.1.32","@types/detective":"^5.1.2","@types/eslint":"^8.4.1","@types/express":"^4.17.13","@types/http-errors":"^1.8.2","@types/inherits":"^0.0.30","@types/lodash":"^4.14.180","@types/merge-descriptors":"^1.0.1","@types/node":"^17.0.21","@types/react":"^18.0.5","@types/react-burger-menu":"^2.8.3","@types/react-dom":"^18.0.1","@types/react-redux":"^7.1.23","@types/react-router-dom":"^5.3.3","@types/serve-static":"^1.13.10","@types/statuses":"^2.0.0","@types/styled-components":"^5.1.24","@types/tailwindcss":"^3.0.9","@types/testing-library__jest-dom":"^5.14.3"}}
+[12:44:40.123] Loaded content of 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/package-lock.json'
+[12:44:40.142] Adding entry into typings cache: 'body-parser' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/body-parser/index.d.ts'
+[12:44:40.150] Adding entry into typings cache: 'caniuse-lite' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/caniuse-lite/index.d.ts'
+[12:44:40.156] Adding entry into typings cache: 'cors' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/cors/index.d.ts'
+[12:44:40.162] Adding entry into typings cache: 'craco__craco' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/craco__craco/index.d.ts'
+[12:44:40.165] Adding entry into typings cache: 'depd' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/depd/index.d.ts'
+[12:44:40.171] Adding entry into typings cache: 'detective' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/detective/index.d.ts'
+[12:44:40.178] Adding entry into typings cache: 'eslint' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/eslint/index.d.ts'
+[12:44:40.184] Adding entry into typings cache: 'express' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/express/index.d.ts'
+[12:44:40.191] Adding entry into typings cache: 'http-errors' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/http-errors/index.d.ts'
+[12:44:40.195] Adding entry into typings cache: 'inherits' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/inherits/index.d.ts'
+[12:44:40.200] Adding entry into typings cache: 'lodash' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/lodash/index.d.ts'
+[12:44:40.204] Adding entry into typings cache: 'merge-descriptors' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/merge-descriptors/index.d.ts'
+[12:44:40.214] Adding entry into typings cache: 'node' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/node/index.d.ts'
+[12:44:40.218] Adding entry into typings cache: 'react' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/react/index.d.ts'
+[12:44:40.221] Adding entry into typings cache: 'react-burger-menu' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/react-burger-menu/index.d.ts'
+[12:44:40.224] Adding entry into typings cache: 'react-dom' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/react-dom/index.d.ts'
+[12:44:40.228] Adding entry into typings cache: 'react-redux' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/react-redux/index.d.ts'
+[12:44:40.231] Adding entry into typings cache: 'react-router-dom' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/react-router-dom/index.d.ts'
+[12:44:40.235] Adding entry into typings cache: 'serve-static' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/serve-static/index.d.ts'
+[12:44:40.238] Adding entry into typings cache: 'statuses' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/statuses/index.d.ts'
+[12:44:40.242] Adding entry into typings cache: 'styled-components' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/styled-components/index.d.ts'
+[12:44:40.245] Adding entry into typings cache: 'tailwindcss' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/tailwindcss/index.d.ts'
+[12:44:40.248] Adding entry into typings cache: 'testing-library__jest-dom' => 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/node_modules/@types/testing-library__jest-dom/index.d.ts'
+[12:44:40.248] Finished processing cache location 'C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6'
+[12:44:40.249] Process id: 20892
+[12:44:40.249] NPM location: "C:\Program Files\nodejs\npm" (explicit '--npmLocation' not  provided)
+[12:44:40.250] validateDefaultNpmLocation: false
+[12:44:40.250] Npm config file: C:/Users/raisa/AppData/Local/Microsoft/TypeScript/4.6/package.json
+[12:44:40.250] Updating types-registry npm package...
+[12:44:40.251] Exec: "C:\Program Files\nodejs\npm" install --ignore-scripts types-registry@latest
+[12:44:43.051]     Succeeded. stdout:
+    
+    changed 1 package, and audited 107 packages in 2s
+
+9 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+[12:44:43.051] Updated types-registry npm package

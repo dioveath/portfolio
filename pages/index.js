@@ -23,6 +23,9 @@ import {
   useColorModeValue
 } from '@chakra-ui/react';
 
+import Fonts from '../config/fonts.js';
+
+
 export default function Home() {
   return (
     <>
@@ -42,23 +45,29 @@ export default function Home() {
         <Box
           padding={"1rem 2rem"}
           borderRadius="0.4rem"
+          shadow="sm"
           bg={useColorModeValue('gray.200', 'darkviolet')}>
-          <Text fontSize="lg">
+          <Text fontSize="lg" textAlign="center">
             Game developer and Full stack developer. I love building and integrating wheels in systems. 
           </Text>          
         </Box>
 
         <Box height="2rem"></Box>
 
-        <Box>
-          <Text fontSize="3xl" fontWeight="600"> Saroj Rai </Text>
-          <Text fontSize="xl" fontWeight="400"> dioveath (Game Developer / Full Stack Developer) </Text>                  
-        </Box>
+        <Flex justifyContent="space-between">
+          <Box>
+            <Text fontSize="3xl" fontWeight="600"> Saroj Rai </Text>
+            <Text fontSize="xl" fontWeight="400"> dioveath (Game Developer / Full Stack Developer) </Text>                  
+          </Box>
+          <Image src="assets/kunio_kun.png" height="100px" transform="scaleX(-1)"/>
+        </Flex>
 
-        <Box height="1rem"></Box>
+
+        <Box height="1rem" borderBottom="1px solid gray"></Box>
+        <Box height="4rem"></Box>        
         <Box>
-          <Text fontSize="xl" fontWeight="500"> Intro </Text>
-          <Box height="0.5rem"></Box>          
+          <Text as="u" fontSize="xl" fontWeight="500"> Intro </Text>
+          <Box height="0.5rem" ></Box>          
           <Text
             fontSize="lg"
             letterSpacing="0.04rem">
@@ -70,9 +79,9 @@ export default function Home() {
           </Text>
           <Box height="1rem"></Box>                    
           <UnorderedList>
-            <ListItem> Play Guitar </ListItem>
-            <ListItem> Draw sketches </ListItem>
             <ListItem> Play Football </ListItem>
+            <ListItem> Play Guitar </ListItem>
+            <ListItem> Sketch Random dudes </ListItem>
             <ListItem> Play Video games at a competitive level, FIFA, PUBG Mobile </ListItem>
           </UnorderedList>
           

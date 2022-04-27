@@ -32,3 +32,7 @@ yarn-error.log*
 .vercel
 
 *.*~
+/.log
+.log
+*.log
+/.log/

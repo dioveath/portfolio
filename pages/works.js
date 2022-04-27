@@ -86,7 +86,7 @@ export default function Works(){
                   target="_blank"
                   href="https://play.google.com/store/apps/details?id=com.charichagamestudio.sudokumania"> <FaGooglePlay size="28"/> </Link>
               }
-              gitLink="https://github.com/dioveath/gamejam2022-duality"
+              gitLink="https://github.com/dioveath/sudokumania"
               techStack={<Flex gap="1rem">
                            <FaUnity size="28"/>
                            <SiFirebase size="28"/>
@@ -107,7 +107,7 @@ export default function Works(){
                   <SiNetlify size="28"/> </Link>
               }
       
-              gitLink="https://github.com/dioveath/chc-website-nextjs"
+              gitLink="https://github.com/dioveath/ci-website-nextjs"
               techStack={<Flex gap="1rem">
                            <SiNextdotjs size="28"/>
                            <SiFirebase size="28"/>
