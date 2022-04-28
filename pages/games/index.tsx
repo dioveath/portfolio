@@ -20,7 +20,7 @@ export default function Games(){
   useEffect(() => {
       if(canvas.current === null) return;
 
-      let game: Game = new Game("Saroj Rai | Games", canvas.current.id, window.innerWidth, window.innerHeight);
+      let game: Game = new Game("Saroj Rai | Games", canvas.current.id, window.innerWidth, window.innerHeight - 1); // FIXME: 1 pixel off 
       let startScene: LoadingScene = new LoadingScene(game, "Loading Scene", window.innerWidth, window.innerHeight);
       game.addScene(startScene);
       game.startGame();

@@ -11,6 +11,8 @@ import { FaUnity, FaNode, FaGooglePlay } from 'react-icons/fa';
 import { SiReact, SiNodedotjs, SiExpress, SiMongodb, SiFirebase, SiJavascript, SiCsharp, SiNextdotjs, SiHeroku, SiItchdotio, SiNetlify, SiApachecordova, SiDocker } from 'react-icons/si';
 import { GoBrowser } from 'react-icons/go';
 
+import Footer from '../components/Footer.js';
+
 export default function Works(){
   
   return (
@@ -96,6 +98,28 @@ export default function Works(){
             />
 
             <Card
+              imgSrc="assets/chc_internal.png"
+              alt="Charicha Internal Application "
+              title="Company Management Soft."
+              desc="Internal Software to help manage employees, finance, etc.. of a Company."
+              liveLink={
+                <Link
+                  target="_blank"
+                  href="https://chcapp.herokuapp.com"
+                  _hover={{cursor: "pointer"}}> <SiHeroku size="28"/></Link>
+              }
+              gitLink="https://github.com/dioveath/chc-wallet"
+              techStack={<Flex gap="1rem">
+                           <SiJavascript size="28"/>
+                           <SiReact size="28"/>
+                           <FaNode size="28"/>
+                           <SiExpress size="28"/>
+                           <SiMongodb size="28"/>
+                           <SiDocker size="28"/>
+                         </Flex>}              
+            />            
+
+            <Card
               imgSrc="assets/chc_institute_landing.png"
               alt="Charicha Institute Landing"
               title="Charicha Institute"
@@ -153,6 +177,7 @@ export default function Works(){
           </Grid>        
         </Flex>
       </Box>
+      <Footer/>
     </>
   );
 

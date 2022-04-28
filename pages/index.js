@@ -24,6 +24,7 @@ import {
   useColorModeValue
 } from '@chakra-ui/react';
 
+import Footer from '../components/Footer.js';
 import Fonts from '../config/fonts.js';
 
 
@@ -117,13 +118,13 @@ export default function Home() {
                 _hover={{cursor: "pointer"}}> <SiHeroku size="28"/></Link>                          }
             gitLink="https://github.com/dioveath/chc-gaming"
             techStack={<Flex gap="1rem">
-                                 <SiJavascript size="28"/>
-                                 <SiReact size="28"/>
-                                 <FaNode size="28"/>
-                                 <SiExpress size="28"/>
+                         <SiJavascript size="28"/>
+                         <SiReact size="28"/>
+                         <FaNode size="28"/>
+                         <SiExpress size="28"/>
                          <SiMongodb size="28"/>
                          <SiDocker size="28"/>
-                               </Flex>}                          
+                       </Flex>}                          
           />
 
           <Card
@@ -139,27 +140,15 @@ export default function Home() {
             }
             gitLink="https://github.com/dioveath/gamejam2022-duality"
             techStack={<Flex gap="1rem">
-           <FaUnity size="28"/>
-           <SiCsharp size="28"/>
-         </Flex>}            
+                        <FaUnity size="28"/>
+                        <SiCsharp size="28"/>
+                      </Flex>}            
           />
 
         </Grid>
       </Box>
 
-      <footer className={styles.footer}>
-        <Link
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-          color="whitealpha.50"
-        >
-          Copyright &copy; 2022 Saroj Rai. All Rights Reserved
-          <span className={styles.logo}>
-            {/* <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} /> */}
-          </span>
-        </Link>
-      </footer>
+      <Footer/>
     </>
   );
 }
