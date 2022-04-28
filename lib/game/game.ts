@@ -1,3 +1,4 @@
+import AudioManager from '../core/audio';
 import Graphics from '../core/graphics';
 import Input from '../core/input';
 import Scene from './scene';
@@ -9,6 +10,7 @@ export default class Game {
     private _scenes: Scene[];
     private _graphics: Graphics;
     private _input: Input;
+    private _audio: AudioManager;
 
     private _width: number;
     private _height: number;
@@ -25,12 +27,17 @@ export default class Game {
 	return this._input;
     }
 
+    get audio () {
+	return this._audio;
+    }
+
     constructor(gameName: string, canvasId: string, width: number, height: number){
 	this._gameName = gameName;
 	this._width = width;
 	this._height = height;
 	this._graphics = new Graphics(canvasId, this._width, this._height);
 	this._input = new Input();
+	this._audio = new AudioManager();
 
 	this.init();
     }
@@ -85,7 +92,6 @@ export default class Game {
 	    this._scenes[i].render(this._graphics.context, deltaTime);
 	}
 
-
 	this._loopId = requestAnimationFrame(this.gameLoop.bind(this));
     }
 
@@ -94,8 +100,10 @@ export default class Game {
 	    this._scenes[i].destroy();
 	}
 
-	this._input.removeListener();
+	this._input.destroy();
+	this._audio.destroy();
 	window.cancelAnimationFrame(this._loopId);
+	console.log("destroying game");
     } 
 
 }

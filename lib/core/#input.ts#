@@ -24,6 +24,7 @@ export default class Input {
 
     private handleKeyDown(event: KeyboardEvent) : boolean{
 	this._keys[event.keyCode] = true;
+
 	event.preventDefault();
 	return false;
     }

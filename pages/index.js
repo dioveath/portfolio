@@ -13,6 +13,7 @@ import {
   Box,
   Text,
   Flex,
+  Wrap,
   Grid,
   GridItem,
   Link,
@@ -90,13 +91,13 @@ export default function Home() {
         <Box height="2rem"></Box>
         <Text fontSize="xl" fontWeight="500"> Find me on </Text>
         <Box height="1rem"></Box>
-        <Flex gap="4rem">
+        <Wrap spacing="4rem">
           <Link target="_blank" href="https://github.com/dioveath"><BsGithub size={30}/></Link>
           <Link target="_blank" href="https://www.linkedin.com/in/saroj-rai-11739a110/"><BsLinkedin size={30}/></Link>
           <Link target="_blank" href="https://dioveath.itch.io"><SiItchdotio size={30}/></Link>          
           <Link target="_blank" href="https://twitter.com/dioveath"><BsTwitter size={30}/></Link>          
           <Link target="_blank" href="https://www.youtube.com/channel/UCoaAC-D62Vl9b2X2WMeUtgw"><BsYoutube size={30}/></Link>
-        </Flex>
+        </Wrap>
 
         <Box height="8rem"></Box>        
         <Text fontSize="lg" fontWeight="500"> Highlight Works </Text>

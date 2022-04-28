@@ -18,13 +18,18 @@ export default function Games(){
   const canvas = useRef(null);
 
   useEffect(() => {
+      if(canvas.current === null) return;
 
       let game: Game = new Game("Saroj Rai | Games", canvas.current.id, window.innerWidth, window.innerHeight);
       let startScene: LoadingScene = new LoadingScene(game, "Loading Scene", window.innerWidth, window.innerHeight);
-
       game.addScene(startScene);
-
       game.startGame();
+
+      return () => {
+	  if(game !== undefined) {
+	      game.destroy();
+	  }
+      }
 
   }, []);
 

@@ -76,7 +76,6 @@ export default class LoadingScene extends Scene {
     }
 
     override destroy(): void {
-	console.log("destroying..!");
     }
 
 }

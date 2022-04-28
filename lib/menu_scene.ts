@@ -1,3 +1,4 @@
+import AudioManager from "./core/audio";
 import Game from "./game/game";
 import Scene from "./game/scene";
 import { Sprite } from "./game/sprite";
@@ -8,6 +9,7 @@ export default class MenuScene extends Scene {
     private _games: string[];
     private _currentIndex = 0;
     private _navKeyPressed = false;
+    private _audio : AudioManager;
 
     constructor(game: Game, sceneName: string, width: number, height: number) {
 	super();
@@ -15,6 +17,7 @@ export default class MenuScene extends Scene {
 	this.id = sceneName;
 	this.width = width;
 	this.height = height;
+	this._audio = game.audio;
     }
 
     init(): void {
@@ -29,6 +32,11 @@ export default class MenuScene extends Scene {
 	    "DOUBLE DRAGON"
 	];
 
+	this._audio.loadSound("assets/audios/isee_nes.mp3", "menu_music1", true);
+	this._audio.loadSound("assets/audios/menu_nav_up.wav", "menu_nav_up", false);
+	this._audio.loadSound("assets/audios/menu_nav_down.wav", "menu_nav_down", false);
+	this._audio.loadSound("assets/audios/game_over.wav", "game_over", false);		
+	this._audio.playSound("menu_music1", 0.3);
     }
 
     update(deltaTime: number): void {
@@ -36,13 +44,21 @@ export default class MenuScene extends Scene {
 	    if(this.game.input.isKeyPressed(38)){
 		this._currentIndex--;
 		this._navKeyPressed = true;
+		this._audio.playSound("menu_nav_up", 0.7);		
 	    } else if(this.game.input.isKeyPressed(40)){
 		this._currentIndex++;
+		this._navKeyPressed = true;
+		this._audio.playSound("menu_nav_down", 0.7);				
+	    } else if(this.game.input.isKeyPressed(32)
+		|| this.game.input.isKeyPressed(13)) {
 		this._navKeyPressed = true;		
-	    }	    
+		this._audio.playSound("game_over", 0.7);
+	    }
 	} else {
 	    if(!this.game.input.isKeyPressed(38)
-		&& !this.game.input.isKeyPressed(40)) {
+		&& !this.game.input.isKeyPressed(40)
+		&& !this.game.input.isKeyPressed(32)
+	       && !this.game.input.isKeyPressed(13)) {
 		this._navKeyPressed = false;
 	    }
 	} 
