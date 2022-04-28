@@ -1,4 +1,5 @@
 import Graphics from '../core/graphics';
+import Input from '../core/input';
 import Scene from './scene';
 
 
@@ -7,6 +8,7 @@ export default class Game {
     private _gameName: string;
     private _scenes: Scene[];
     private _graphics: Graphics;
+    private _input: Input;
 
     private _width: number;
     private _height: number;
@@ -17,13 +19,18 @@ export default class Game {
 
     get height () {
 	return this._height;
-    }    
+    }
+
+    get input () {
+	return this._input;
+    }
 
     constructor(gameName: string, canvasId: string, width: number, height: number){
 	this._gameName = gameName;
 	this._width = width;
 	this._height = height;
 	this._graphics = new Graphics(canvasId, this._width, this._height);
+	this._input = new Input();
 
 	this.init();
     }
@@ -31,6 +38,7 @@ export default class Game {
     private init(): void {
 	document.title = this._gameName;
 	this._scenes = [];
+	this._input.registerListener();
     }
 
     public startGame(): void {
@@ -86,6 +94,7 @@ export default class Game {
 	    this._scenes[i].destroy();
 	}
 
+	this._input.removeListener();
 	window.cancelAnimationFrame(this._loopId);
     } 
 

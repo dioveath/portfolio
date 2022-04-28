@@ -7,6 +7,7 @@ export default class MenuScene extends Scene {
 
     private _games: string[];
     private _currentIndex = 0;
+    private _navKeyPressed = false;
 
     constructor(game: Game, sceneName: string, width: number, height: number) {
 	super();
@@ -27,9 +28,26 @@ export default class MenuScene extends Scene {
 	    "SNOW BROTHERS",
 	    "DOUBLE DRAGON"
 	];
+
     }
 
     update(deltaTime: number): void {
+	if(!this._navKeyPressed) {
+	    if(this.game.input.isKeyPressed(38)){
+		this._currentIndex--;
+		this._navKeyPressed = true;
+	    } else if(this.game.input.isKeyPressed(40)){
+		this._currentIndex++;
+		this._navKeyPressed = true;		
+	    }	    
+	} else {
+	    if(!this.game.input.isKeyPressed(38)
+		&& !this.game.input.isKeyPressed(40)) {
+		this._navKeyPressed = false;
+	    }
+	} 
+
+	this._currentIndex = Math.max(0, Math.min(this._currentIndex, this._games.length - 1));
     }
 
     render(context: CanvasRenderingContext2D, deltaTime: number): void {

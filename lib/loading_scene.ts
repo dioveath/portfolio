@@ -11,7 +11,7 @@ export default class LoadingScene extends Scene {
     private _isLoaded = false;
 
     private _time: number;
-    private _loadFor: number = 4;
+    private _loadFor: number = 1;
 
     constructor(game: Game, sceneName: string, width: number, height: number) {
 	super();
