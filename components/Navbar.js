@@ -1,4 +1,4 @@
-import Logo from './Logo.js';
+import Logo from './Logo.tsx';
 import NextLink from 'next/link';
 import {
   Container,

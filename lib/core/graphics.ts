@@ -18,7 +18,7 @@ export default class Graphics {
     }
 
     private init() : void {
-	this._canvas = document.getElementById("canvas") as HTMLCanvasElement;
+	this._canvas = document.getElementById(this._canvasId) as HTMLCanvasElement;
 	if(this._canvas === undefined || this._canvas === null) {
 	    this._canvas = document.createElement("canvas") as HTMLCanvasElement;
 	    this._canvas.setAttribute("id", this._canvasId);

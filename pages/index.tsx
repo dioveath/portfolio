@@ -28,7 +28,13 @@ import Footer from '../components/Footer.js';
 import Fonts from '../config/fonts.js';
 
 
+import Game from '../lib/game/game';
+import Scene from '../lib/game/scene';
+import LogoScene from './scenes/logo_scene';
+
 export default function Home() {
+
+
   return (
     <>
       <Head>
@@ -38,7 +44,7 @@ export default function Home() {
       </Head>
 
       <Navbar/>
-
+	  
       <Box
         minHeight="100vh"
         padding={{base: "4rem 2rem", md: "4rem 4rem", xl:"4rem 20rem"}}>

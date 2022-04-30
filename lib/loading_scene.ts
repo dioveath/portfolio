@@ -27,7 +27,7 @@ export default class LoadingScene extends Scene {
 
 	img.onload = () => {
 	    this._loadingSpriteSheet = new SpriteSheet(img, 1200, 80, 120, 80, 9);
-	    this._loadingAnimation = new SpriteAnimation(this._loadingSpriteSheet, 14);
+	    this._loadingAnimation = new SpriteAnimation(this._loadingSpriteSheet, 8);
 	    this._isLoaded = true;
 	    this._time = 0;
 	}
