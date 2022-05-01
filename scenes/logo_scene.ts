@@ -1,8 +1,7 @@
-import SpriteAnimation from "../../lib/game/animation";
-import Game from "../../lib/game/game";
-import Scene from "../../lib/game/scene";
-import SpriteSheet, { Sprite } from "../../lib/game/sprite";
-
+import SpriteAnimation from "../lib/game/animation";
+import Game from "../lib/game/game";
+import Scene from "../lib/game/scene";
+import SpriteSheet, { Sprite } from "../lib/game/sprite";
 
 
 export default class LogoScene extends Scene {

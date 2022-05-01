@@ -4,7 +4,7 @@ import { Text, useColorModeValue } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import { useRef, useEffect } from 'react';
 import Game from '../lib/game/game';
-import LogoScene from '../pages/scenes/logo_scene';
+import LogoScene from '../scenes/logo_scene';
 import Scene from '../lib/game/scene';
 
 const LogoBox = styled.span`
@@ -34,7 +34,7 @@ const Logo = () => {
     if(canvas.current === null) return;
 
       let game: Game = new Game("Saroj Rai", canvas.current.id, 40, 40);
-      let logoScene: Scene = new LogoScene(game, "Logo Scene", game.width, game.height);
+      let logoScene: LogoScene = new LogoScene(game, "Logo Scene", game.width, game.height);
 
       game.addScene(logoScene);
       game.startGame();

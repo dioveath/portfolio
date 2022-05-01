@@ -1,8 +1,5 @@
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
 import { BsGithub, BsTwitter, BsLinkedin, BsYoutube} from 'react-icons/bs';
-import { MdConstruction } from 'react-icons/md';
-import { CgMediaLive } from 'react-icons/cg';
 import Navbar from '../components/Navbar.js';
 import Card from '../components/Card.js';
 
@@ -15,26 +12,17 @@ import {
   Flex,
   Wrap,
   Grid,
-  GridItem,
   Link,
   UnorderedList,
   ListItem,
-  Stack,
   Image,
   useColorModeValue
 } from '@chakra-ui/react';
 
 import Footer from '../components/Footer.js';
-import Fonts from '../config/fonts.js';
 
-
-import Game from '../lib/game/game';
-import Scene from '../lib/game/scene';
-import LogoScene from './scenes/logo_scene';
 
 export default function Home() {
-
-
   return (
     <>
       <Head>
@@ -67,7 +55,7 @@ export default function Home() {
             <Text fontSize="3xl" fontWeight="600"> Saroj Rai </Text>
             <Text fontSize="xl" fontWeight="400"> dioveath (Game Developer / Full Stack Developer) </Text>                  
           </Box>
-          <Image src="assets/kunio_kun.png" height="100px" transform="scaleX(-1)"/>
+          <Image alt="Kunio Avatar" src="assets/kunio_kun.png" height="100px" transform="scaleX(-1)"/>
         </Flex>
 
 
