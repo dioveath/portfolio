@@ -27,7 +27,7 @@ export default function Home() {
     <>
       <Head>
         <title> Saroj Rai </title>
-        <meta name="description" content="Saroj Rai | Portfolio Website | Full Stack Developer" />
+        <meta name="description" content="Saroj Rai | Game Developer | Full Stack Developer " />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
