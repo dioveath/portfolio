@@ -1,5 +1,4 @@
 import { BsGithub } from 'react-icons/bs';
-import { CgMediaLive } from 'react-icons/cg';
 import {
   Stack,
   Image,
@@ -18,12 +17,24 @@ export default function Card({ imgSrc, alt, title, desc, liveLink, gitLink, tech
             padding="1rem"
           >
             <Image
+              position="relative"
               src={imgSrc}
               alt={alt}
               height="200px"
               objectFit="cover"
-              borderRadius="10px"
-            />
+              borderRadius="4px"
+              transition="0.2s ease-in-out"
+              _hover={{
+                "transform": "scale(101%)"
+              }}/>
+            <Flex gap="1rem">
+              { liveLink }
+              <Link target="_blank" href={gitLink}>
+                <BsGithub
+                  size="28" color="#5555ff"/>
+              </Link>
+            </Flex>            
+            
             <Stack>
               <Text fontSize="xl" fontWeight="500"> {title} </Text>
               <Text> {desc} </Text>              
@@ -38,13 +49,6 @@ export default function Card({ imgSrc, alt, title, desc, liveLink, gitLink, tech
               height="0.2rem"
               borderTop="1px solid gray"              
             ></Box>
-
-            <Flex gap="1rem">
-              { liveLink }
-              <Link target="_blank" href={gitLink}>
-                <BsGithub size="28"/>
-              </Link>
-            </Flex>
 
           </Stack>);
 }

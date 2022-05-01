@@ -43,7 +43,7 @@ export default function Games(){
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <Navbar path="/games"/>
+      <Navbar path="/enterBase"/>
       <canvas ref={canvas} id="canvas"></canvas>
     </>
   );

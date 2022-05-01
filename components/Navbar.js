@@ -74,15 +74,19 @@ const Navbar = props => {
           <LinkItem href="/works" path={path}>
             Works
           </LinkItem>
+          <LinkItem href="/games" path={path}>
+            Games
+          </LinkItem>
           <LinkItem target="_blank" href="https://bluecharicha.wordpress.com" path={path}>
             Posts
           </LinkItem>
-          <LinkItem href="/games" path={path}>
-            Games
-          </LinkItem>          
+          <LinkItem href="/hideout" path={path}>
+            Hide Out
+          </LinkItem>                              
         </Stack>
 
         <Box flex={1} align="right">
+
           <ThemeToggleButton />
 
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
@@ -100,11 +104,14 @@ const Navbar = props => {
                 <NextLink href="/works" passHref>
                   <MenuItem as={Link}>Works</MenuItem>
                 </NextLink>
+                <NextLink href="/games" passHref>
+                  <MenuItem as={Link}> Games </MenuItem>
+                </NextLink>
                 <NextLink href="https://bluecharicha.wordpress.com" passHref>
                   <MenuItem as={Link} target="_blank">Posts</MenuItem>
                 </NextLink>
-                <NextLink href="/games" passHref>
-                  <MenuItem as={Link}> Games </MenuItem>
+                <NextLink href="/hideout" passHref>
+                  <MenuItem as={Link}> Hide Out </MenuItem>
                 </NextLink>                
               </MenuList>
             </Menu>
