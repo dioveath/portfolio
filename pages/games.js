@@ -9,7 +9,7 @@ import {
   Text
 } from '@chakra-ui/react';
 import { FaUnity, FaNode, FaGooglePlay } from 'react-icons/fa';
-import { SiReact, SiNodedotjs, SiExpress, SiMongodb, SiFirebase, SiJavascript, SiCsharp, SiNextdotjs, SiHeroku, SiItchdotio, SiNetlify, SiApachecordova, SiDocker, SiCplusplus } from 'react-icons/si';
+import { SiReact, SiNodedotjs, SiExpress, SiMongodb, SiFirebase, SiJavascript, SiCsharp, SiNextdotjs, SiHeroku, SiItchdotio, SiNetlify, SiApachecordova, SiDocker, SiCplusplus, SiGnu } from 'react-icons/si';
 import { GoBrowser } from 'react-icons/go';
 import { CgSoftwareDownload } from 'react-icons/cg';
 import { VscTerminalCmd } from 'react-icons/vsc';
@@ -133,8 +133,23 @@ export default function Works(){
                          </Flex>}
             />
 
-
-            
+            <Card
+              imgSrc="assets/works/heli_attack.png"
+              alt="Heli Attack"
+              title="Heli Attack"
+              desc="2D Shooter game using SDL Library. You can create levels in TiledMap."
+              liveLink={
+                <Link
+                  target="_blank"
+                  href="https://dioveath.itch.io/heli-attack">
+                  <SiItchdotio size="28"/> </Link>
+              }
+              gitLink="https://github.com/dioveath/heli-attack"
+              techStack={<Flex gap="1rem">
+                           <SiCplusplus size="28"/>
+                           <SiGnu size="28"/>
+                         </Flex>}
+            />            
 
           </Grid>        
         </Flex>

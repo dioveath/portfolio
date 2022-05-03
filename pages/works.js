@@ -63,7 +63,7 @@ export default function Works(){
                          </Flex>}              
             /> 
             <Card
-              imgSrc="assets/chc_internal.png"
+              imgSrc="assets/works/chc_finance.png"
               alt="Charicha Internal Application "
               title="Company Management Soft."
               desc="Internal Software to help manage employees, finance, etc.. of a Company."
