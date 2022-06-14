@@ -3,7 +3,7 @@ import { BsGithub, BsTwitter, BsLinkedin, BsYoutube} from 'react-icons/bs';
 import Navbar from '../components/Navbar.js';
 import Card from '../components/Card.js';
 
-import { FaUnity, FaNode, FaGooglePlay } from 'react-icons/fa';
+import { FaUnity, FaNode, FaGooglePlay, FaInstagram } from 'react-icons/fa';
 import { SiReact, SiNodedotjs, SiExpress, SiMongodb, SiFirebase, SiJavascript, SiCsharp, SiNextdotjs, SiHeroku, SiItchdotio, SiNetlify, SiApachecordova, SiDocker } from 'react-icons/si';
 
 import {
@@ -92,6 +92,7 @@ export default function Home() {
           <Link target="_blank" href="https://dioveath.itch.io"><SiItchdotio size={30}/></Link>          
           <Link target="_blank" href="https://twitter.com/dioveath"><BsTwitter size={30}/></Link>          
           <Link target="_blank" href="https://www.youtube.com/channel/UCoaAC-D62Vl9b2X2WMeUtgw"><BsYoutube size={30}/></Link>
+          <Link target="_blank" href="https://www.instagram.com/dioveath0/"><FaInstagram size={30}/></Link>	  
         </Wrap>
 
         <Box height="8rem"></Box>        
