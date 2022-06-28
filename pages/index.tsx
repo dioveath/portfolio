@@ -67,7 +67,7 @@ export default function Home() {
           <Text
             fontSize="lg"
             letterSpacing="0.04rem">
-            I am Game Developer and Full-stack Engineer. I have keen eyes for aesthetics, design ideas, as well as on the architecture of the system. I love creating games and working with systems.
+            I am Game Developer and Full-stack Engineer. I have keen eyes for aesthetics, design ideas, system architecture. I love creating games and working with systems.
           </Text>
           <Box height="1rem"></Box>          
           <Text>
