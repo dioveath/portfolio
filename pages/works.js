@@ -10,9 +10,11 @@ import {
 } from '@chakra-ui/react';
 import { FaUnity, FaNode, FaGooglePlay } from 'react-icons/fa';
 import { SiReact, SiNodedotjs, SiExpress, SiMongodb, SiFirebase, SiJavascript, SiCsharp, SiNextdotjs, SiHeroku, SiItchdotio, SiNetlify, SiApachecordova, SiDocker, SiCplusplus } from 'react-icons/si';
+import { VscAzure } from 'react-icons/vsc';
 import { GoBrowser } from 'react-icons/go';
 import { CgSoftwareDownload } from 'react-icons/cg';
 import { VscTerminalCmd } from 'react-icons/vsc';
+import { MdOutlinePrivacyTip } from 'react-icons/md';
 
 import Footer from '../components/Footer.js';
 
@@ -49,8 +51,8 @@ export default function Works(){
               liveLink={
                 <Link
                   target="_blank"
-                  href="https://chc-gaming.herokuapp.com/"
-                  _hover={{cursor: "pointer"}}> <SiHeroku size="28"/></Link>
+                  href="https://chcgaming.azurewebsites.net/"
+                  _hover={{cursor: "pointer"}}> <VscAzure size="28" /></Link>
               }
               gitLink="https://github.com/dioveath/chc-gaming"
               techStack={<Flex gap="1rem">
@@ -69,9 +71,8 @@ export default function Works(){
               desc="Internal Software to help manage employees, finance, etc.. of a Company."
               liveLink={
                 <Link
-                  target="_blank"
-                  href="https://chcapp.herokuapp.com"
-                  _hover={{cursor: "pointer"}}> <SiHeroku size="28"/></Link>
+                  href="#"
+                  _hover={{cursor: "pointer"}}> <MdOutlinePrivacyTip size="28"/></Link>
               }
               gitLink="https://github.com/dioveath/chc-wallet"
               techStack={<Flex gap="1rem">
