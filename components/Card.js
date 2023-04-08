@@ -1,5 +1,5 @@
 import { BsGithub } from "react-icons/bs";
-import { Stack, Image, Text, Flex, Link, Box } from "@chakra-ui/react";
+import { Stack, Image, Text, Flex, Link, Box, useColorModeValue } from "@chakra-ui/react";
 
 export default function Card({
   imgSrc,
@@ -16,12 +16,12 @@ export default function Card({
       "textDecoration": "none"
     }}>
       <Stack
-        maxWidth="300px"
+        width={{ base: "300px", md: "320px", lg: "350px" }}
         overflow="hidden"
         padding="1.2rem 1rem"
         border={"1px #1A1C20"}
         borderRadius={"10px"}
-        background={"#1A1C20"}
+        background={useColorModeValue("white", "#1A1C20")}
         _hover={{
           transform: "scale(105%)",
           filter:

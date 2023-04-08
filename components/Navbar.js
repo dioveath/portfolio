@@ -3,6 +3,7 @@ import NextLink from 'next/link';
 import {
   Container,
   Box,
+  Text,
   Link,
   Stack,
   Heading,
@@ -38,13 +39,33 @@ const LinkItem = ({ href, path, target, children, ...props }) => {
 
 const Navbar = props => {
   const { path } = props;
+  const isHideout = path === '/enterBase';
+  const bgValue = useColorModeValue('#ffffff40', '#20202380');
+
+
+  if(isHideout) {
+    return (
+      <Box 
+        position="fixed"
+        as="nav"
+        w="100%"
+        zIndex={1}
+        {...props}
+        >
+          <Link href="/" passHref>
+            <Text fontFamily="NesFont, Consolas" fontSize="md" color="white" textAlign="left" m="2rem"> {"<"} Back to Business </Text>
+          </Link>
+        </Box>
+    );
+  }
 
   return (
     <Box
       position="fixed"
       as="nav"
       w="100%"
-      bg={useColorModeValue('#ffffff40', '#20202380')}
+      bg={ isHideout ? "transparent" : bgValue}
+      color={isHideout ? 'white' : 'inherit'}
       css={{ backdropFilter: 'blur(10px)' }}
       zIndex={1}
       {...props}

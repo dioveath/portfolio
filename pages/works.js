@@ -40,7 +40,7 @@ export default function Works() {
 
       <Box
         minHeight="100vh"
-        padding={{ base: "4rem 2rem", md: "4rem 4rem", xl: "6rem 30rem" }}
+        padding={{ base: "8rem 2rem", md: "8rem 4rem", xl: "8rem 20rem" }}
       >
         <Text fontSize="2xl" fontWeight="500">
           {" "}

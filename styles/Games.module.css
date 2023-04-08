@@ -2,3 +2,10 @@
     font-family: NesFont;
     src: url(../public/fonts/PressStart2P-vaV7.ttf)
 }
+
+.canvas {
+    display: block;
+    box-sizing: border-box;
+    margin: 0 0;
+    padding: 0 0;
+}

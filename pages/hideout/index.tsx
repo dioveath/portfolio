@@ -1,11 +1,8 @@
 import Head from 'next/head';
-import Script from 'next/script';
 import styles from '../../styles/Games.module.css';
+import Script from 'next/script';
+
 import Navbar from '../../components/Navbar.js';
-import {
-  Flex,
-  Text
-} from '@chakra-ui/react';
 import Fonts from '../../config/fonts.js';
 
 import { useRef, useEffect } from 'react';
@@ -20,7 +17,7 @@ export default function Games(){
   useEffect(() => {
       if(canvas.current === null) return;
 
-      let game: Game = new Game("Saroj Rai | Games", canvas.current.id, window.innerWidth, window.innerHeight - 1); // FIXME: 1 pixel off 
+      let game: Game = new Game("Saroj Rai | Games", canvas.current.id, window.innerWidth-1, window.innerHeight-1); // FIXME: 1 pixel off 
       let startScene: LoadingScene = new LoadingScene(game, "Loading Scene", window.innerWidth, window.innerHeight);
       game.addScene(startScene);
       game.startGame();
@@ -44,7 +41,7 @@ export default function Games(){
       </Head>
       
       <Navbar path="/enterBase"/>
-      <canvas ref={canvas} id="canvas"></canvas>
+      <canvas className={styles.canvas} ref={canvas} id="canvas"></canvas>
     </>
   );
 

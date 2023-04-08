@@ -55,9 +55,9 @@ const Logo = () => {
           <LogoBox>
 	  <canvas id="logoCanvas" ref={canvas} style={{ zIndex: 100}}></canvas>
           <Text
-            color={useColorModeValue('gray.800', 'whiteAlpha.900')}
-            fontFamily='Consolas, sans-serif'
-            fontWeight="bold"
+            // color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+            fontFamily='NesFont, Consolas, sans-serif'
+            fontSize='sm'
             ml={3}
           >
             Saroj Rai
