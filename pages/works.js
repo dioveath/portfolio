@@ -17,6 +17,9 @@ import {
   SiNextdotjs,
   SiDocker,
   SiCplusplus,
+  SiTypescript,
+  SiGraphql,
+  SiVercel,
 } from "react-icons/si";
 import { VscAzure } from "react-icons/vsc";
 import { GoBrowser } from "react-icons/go";
@@ -81,6 +84,32 @@ export default function Works() {
                   <SiExpress size="28" />
                   <SiMongodb size="28" />
                   <SiDocker size="28" />
+                </Flex>
+              }
+            />
+            <Card
+              imgSrc="assets/works/prompters_dev.png"
+              alt="prompters.dev Landing page"
+              title="prompters.dev"
+              desc="prompters.dev is a community with a diverse range of AI-powered tools &amp; our people share how to use those tools best."
+              liveLink={
+                <Link
+                  target="_blank"
+                  href="https://prompters.dev"
+                  _hover={{ cursor: "pointer" }}
+                >
+                  <SiVercel size="28" />
+                </Link>
+              }
+              gitLink="https://prompters.dev"
+              techStack={
+                <Flex gap="1rem">
+                  <SiTypescript size="28" />
+                  <SiReact size="28" />
+                  <SiNextdotjs size="28" />
+                  <SiMongodb size="28" />
+                  <SiPrisma size="28" />
+                  <SiGraphql size="28" />
                 </Flex>
               }
             />
