@@ -34,9 +34,11 @@ import {
   ListItem,
   Image,
   useColorModeValue,
+  Button,
 } from "@chakra-ui/react";
 
 import Footer from "../components/Footer.js";
+import FreeQuoteModal from "../components/FreeQuoteModal";
 
 export default function Home() {
   return (
@@ -71,25 +73,36 @@ export default function Home() {
 
         <Box height="2rem"></Box>
 
-        <Flex justifyContent="space-between">
+        <Flex justifyContent="space-between" alignItems={"center"}>
           <Box>
             <Text fontSize="3xl" fontWeight="600">
               Saroj Rai
             </Text>
             <Text fontSize="xl" fontWeight="400">
-              Saroj Rai (Game Developer / Full Stack Developer)
+              Game Developer x Full Stack Developer
             </Text>
           </Box>
           <Image
-            alt="Kunio Avatar"
-            src="assets/kunio_kun.png"
-            height="100px"
-            transform="scaleX(-1)"
+            alt="Saroj Avatar"
+            src="assets/profile.png"
+            height="200px"
           />
         </Flex>
 
         <Box height="1rem" borderBottom="1px solid gray"></Box>
-        <Box height="4rem"></Box>
+        <Box height="2rem"></Box>
+
+        {/* <FreeQuoteModal /> */}
+        <Flex justifyContent={"center"} alignItems={"center"}>
+            <Link href={"mailto:raisaroj360@gmail.com?Subject=Hey%20Rai%2C%20Need%20a%20Quick%20Quote%20for%20My%20Project&body=Greetings%20Rai%2C%20%0A%0AMy%20name%20is%20_____________.%20I%20am%20from%20__________.%0AI%20am%20planning%20to%20build%20________%28website%2Fapp%2Fgame%29.%20My%20budget%20for%20the%20project%20is%20____________.%0AAnd%20it%20should%20be%20able%20to%2C%0A1.%20%0A2.%20%0A3.%20%0A%0AHopefully%2C%20if%20this%20requirement%20fits%20with%20your%20working%20rate%2C%20I%27d%20love%20to%20you%20to%20build%20my%20project.%0A%0AThanks%0A___________%0A"} > 
+            <Button color={"white"} background={"#9400d3"} variant="outline" size="lg">
+            Get a Free Quote on Your Next Project
+            </Button>
+            </Link>
+        </Flex>
+        
+
+        <Box height="2rem"></Box>        
         <Box>
           <Text as="u" fontSize="xl" fontWeight="500">
             Intro

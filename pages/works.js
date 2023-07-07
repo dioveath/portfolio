@@ -20,6 +20,10 @@ import {
   SiTypescript,
   SiGraphql,
   SiVercel,
+  SiNativescript,
+  SiAndroid,
+  SiBluetooth,
+  SiBlueprint,
 } from "react-icons/si";
 import { VscAzure } from "react-icons/vsc";
 import { GoBrowser } from "react-icons/go";
@@ -29,6 +33,7 @@ import { MdOutlinePrivacyTip } from "react-icons/md";
 import { GrGraphQl } from "react-icons/gr";
 
 import Footer from "../components/Footer.js";
+import { IoLogoGooglePlaystore } from "react-icons/io5";
 
 export default function Works() {
   return (
@@ -88,6 +93,30 @@ export default function Works() {
               }
             />
             <Card
+              imgSrc="assets/works/oms_app.png"
+              alt="OMS Android App Playstore"
+              title="OMS Android App"
+              desc="An Android app that can manage your order, notify new orders, print receipts, and more. It is a companion app for TastyIgniter."
+              liveLink={
+                <Link
+                  target="_blank"
+                  href="https://play.google.com/store/apps/details?id=com.anar.oms"
+                  _hover={{ cursor: "pointer" }}
+                >
+                  <IoLogoGooglePlaystore size="28" />
+                </Link>
+              }
+              gitLink="https://tastyigniter.com/marketplace/item/anar-ordermanager"
+              techStack={
+                <Flex gap="1rem">
+                  <SiJavascript size="28" />
+                  <SiReact size="28" />
+                  <SiAndroid size="28" />
+                  <SiBluetooth size="28" />
+                </Flex>
+              }
+            />            
+            <Card
               imgSrc="assets/works/prompters_dev.png"
               alt="prompters.dev Landing page"
               title="prompters.dev"
@@ -139,6 +168,31 @@ export default function Works() {
                 </Flex>
               }
             />
+            <Card
+              imgSrc="assets/works/myukbuilder.png"
+              alt="My UK Builder Landing Page"
+              title="My UK Builder"
+              desc="A beautiful construction company website, with a custom CMS to manage the content."
+              liveLink={
+                <Link
+                  target="_blank"
+                  href="https://www.myukbuilder.co.uk/"
+                  _hover={{ cursor: "pointer" }}
+                >
+                  <VscAzure size="28" />
+                </Link>
+              }
+              gitLink="https://www.myukbuilder.co.uk/"
+              techStack={
+                <Flex gap="1rem">
+                  <SiTypescript size="28" />
+                  <SiReact size="28" />
+                  <SiMongodb size="28" />
+                  <SiPrisma size="28" />
+                  <SiGraphql size="28" />
+                </Flex>
+              }
+            />            
             <Card
               imgSrc="assets/works/chc_finance.png"
               alt="Charicha Internal Application "
