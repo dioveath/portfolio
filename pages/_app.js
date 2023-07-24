@@ -14,6 +14,8 @@ function MyApp({ Component, pageProps }) {
               crossorigin="anonymous"
               onError={(e) => { console.error('Script failed to load', e); }}/>
             <Fonts/>
+            <Script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></Script>
+            <Script src="https://mediafiles.botpress.cloud/d9417271-85a1-442b-898e-0c50e2816bf5/webchat/config.js" defer></Script>
             <Component {...pageProps} />
           </ChakraProvider>);
 }
