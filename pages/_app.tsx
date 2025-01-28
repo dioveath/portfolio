@@ -18,11 +18,16 @@ function MyApp({ Component, pageProps }) {
         }}
       />
       <Fonts />
-      <Script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></Script>
+      {/* <Script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></Script>
       <Script
         src="https://mediafiles.botpress.cloud/d9417271-85a1-442b-898e-0c50e2816bf5/webchat/config.js"
         defer
-      ></Script>
+      ></Script> */}
+
+
+      <Script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js" defer/>
+      <Script src="https://files.bpcontent.cloud/2025/01/28/16/20250128164511-1X9PGLQF.js" defer/>
+          
       <Component {...pageProps} />
     </ChakraProvider>
   );
