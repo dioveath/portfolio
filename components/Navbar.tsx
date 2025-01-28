@@ -1,10 +1,9 @@
-import Logo from './Logo.tsx';
+import Logo from './Logo';
 import NextLink from 'next/link';
 import {
   Container,
   Box,
   Text,
-  Link,
   Stack,
   Heading,
   Flex,
@@ -13,49 +12,44 @@ import {
   MenuList,
   MenuButton,
   IconButton,
-  useColorModeValue
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import ThemeToggleButton from './ThemeToggleButton.js';
-import { IoLogoGithub } from 'react-icons/io5';
 
-const LinkItem = ({ href, path, target, children, ...props }) => {
+type LinkItemProps = {
+  href: string;
+  path: string;
+  target?: string;
+  children: React.ReactNode;
+};
+
+const LinkItem = ({ href, path, target, children }: LinkItemProps) => {
   const active = path === href;
   const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900');
   return (
-    <NextLink href={href} passHref scroll={false}>
-      <Link
-        p={2}
-        bg={active ? 'teal.300' : undefined}
-        color={active ? '#202023' : inactiveColor}
-        target={target}
-        {...props}
-      >
+    <NextLink href={href} passHref scroll={false} target={target}>
+      <Box p={2} bg={active ? 'teal.300' : undefined} color={active ? '#202023' : inactiveColor}>
         {children}
-      </Link>
+      </Box>
     </NextLink>
   );
 };
 
-const Navbar = props => {
+const Navbar = (props) => {
   const { path } = props;
   const isHideout = path === '/enterBase';
   const bgValue = useColorModeValue('#ffffff40', '#20202380');
 
-
-  if(isHideout) {
+  if (isHideout) {
     return (
-      <Box 
-        position="fixed"
-        as="nav"
-        w="100%"
-        zIndex={1}
-        {...props}
-        >
-          <Link href="/" passHref>
-            <Text fontFamily="NesFont, Consolas" fontSize="md" color="white" textAlign="left" m="2rem"> {"<"} Back to Business </Text>
-          </Link>
-        </Box>
+      <Box position="fixed" as="nav" w="100%" zIndex={1} {...props}>
+        <NextLink href="/" passHref>
+          <Text fontFamily="NesFont, Consolas" fontSize="md" color="white" textAlign="left" m="2rem">
+            {'<'} Back to Business{' '}
+          </Text>
+        </NextLink>
+      </Box>
     );
   }
 
@@ -64,7 +58,7 @@ const Navbar = props => {
       position="fixed"
       as="nav"
       w="100%"
-      bg={ isHideout ? "transparent" : bgValue}
+      bg={isHideout ? 'transparent' : bgValue}
       color={isHideout ? 'white' : 'inherit'}
       css={{ backdropFilter: 'blur(10px)' }}
       zIndex={1}
@@ -74,9 +68,9 @@ const Navbar = props => {
         display="flex"
         p={2}
         maxW="container.md"
-        wrap="wrap"
-        align="center"
-        justify="space-between"
+        flexWrap={'wrap'}
+        alignItems="center"
+        justifyContent="space-between"
       >
         <Flex align="center" mr={5}>
           <Heading as="h1" size="lg" letterSpacing={'tighter'}>
@@ -103,37 +97,31 @@ const Navbar = props => {
           </LinkItem>
           <LinkItem href="/hideout" path={path}>
             Hide Out
-          </LinkItem>                              
+          </LinkItem>
         </Stack>
 
-        <Box flex={1} align="right">
-
+        <Box flex={1}>
           <ThemeToggleButton />
 
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
             <Menu isLazy id="navbar-menu">
-              <MenuButton
-                as={IconButton}
-                icon={<HamburgerIcon />}
-                variant="outline"
-                aria-label="Options"
-              />
+              <MenuButton as={IconButton} icon={<HamburgerIcon />} variant="outline" aria-label="Options" />
               <MenuList>
                 <NextLink href="/" passHref>
-                  <MenuItem as={Link}>About</MenuItem>
+                  <MenuItem>About</MenuItem>
                 </NextLink>
                 <NextLink href="/works" passHref>
-                  <MenuItem as={Link}>Works</MenuItem>
+                  <MenuItem>Works</MenuItem>
                 </NextLink>
                 <NextLink href="/games" passHref>
-                  <MenuItem as={Link}> Games </MenuItem>
+                  <MenuItem> Games </MenuItem>
                 </NextLink>
-                <NextLink href="https://bluecharicha.wordpress.com" passHref>
-                  <MenuItem as={Link} target="_blank">Posts</MenuItem>
+                <NextLink href="https://bluecharicha.wordpress.com" passHref target="_blank">
+                  <MenuItem>Posts</MenuItem>
                 </NextLink>
                 <NextLink href="/hideout" passHref>
-                  <MenuItem as={Link}> Hide Out </MenuItem>
-                </NextLink>                
+                  <MenuItem> Hide Out </MenuItem>
+                </NextLink>
               </MenuList>
             </Menu>
           </Box>

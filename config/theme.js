@@ -1,8 +1,17 @@
-import '@fontsource/ibm-plex-sans';
-import '@fontsource/raleway';
 import { mode } from '@chakra-ui/theme-tools';
 import { extendTheme } from '@chakra-ui/react';
+import { Figtree, Outfit } from 'next/font/google'
 
+
+const figtree = Figtree({
+  subsets: ['latin'],
+  variable: '--font-figtree',
+})
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  variable: '--font-outfit',
+})
 
 const config = {
   initialColorMode: 'dark',
@@ -19,8 +28,8 @@ const styles = {
 }
 
 const fonts = {
-  heading: `'Raleway', 'IBM Plex Sans', , sans-serif`,
-  body: `'Raleway', 'IBM Plex Sans', sans-serif`,
+  heading: `${outfit.style.fontFamily}, ${figtree.style.fontFamily}, 'Raleway', 'IBM Plex Sans', , sans-serif`,
+  body: `${outfit.style.fontFamily}, ${figtree.style.fontFamily}, 'Raleway', 'IBM Plex Sans', sans-serif`,
 }
 
 
