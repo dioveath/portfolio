@@ -28,7 +28,7 @@ export default class ContraGameScene extends Scene {
   private isLoading: boolean = true;
   private resourcesLoaded: boolean = false;
 
-  private _audio: AudioManager
+  private _audio: AudioManager;
 
   constructor(game: Game, width: number, height: number) {
     super();
@@ -45,27 +45,17 @@ export default class ContraGameScene extends Scene {
   }
 
   private loadResources(): void {
-    // Start loading map
-    this._map
-      .loadMap('assets/games/platformer/map/first_level.tmx')
-      .then(() => {
-        this.resourcesLoaded = true;
-        this.isLoading = false;
-      })
-      .catch((error) => {
-        console.error('Failed to load map:', error);
-        this.isLoading = false;
-      });
+    const loadMapPromise = this._map.loadMap('assets/games/platformer/map/first_level.tmx');
+    const loadPlayerPromise = this._playerStateMachine.loadResources();
 
-    // Start loading player resources
-    this._playerStateMachine
-      .loadResources()
+    // Wait for both promises to resolve
+    Promise.all([loadMapPromise, loadPlayerPromise])
       .then(() => {
         this.resourcesLoaded = true;
         this.isLoading = false;
       })
       .catch((error) => {
-        console.error('Failed to load player resources:', error);
+        console.error('Failed to load resources:', error);
         this.isLoading = false;
       });
   }
