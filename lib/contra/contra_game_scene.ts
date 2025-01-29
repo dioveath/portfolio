@@ -132,7 +132,7 @@ export default class ContraGameScene extends Scene {
     this.loadResources();
 
     this._audio.loadSound('assets/games/platformer/music/bg.ogg', 'town_music', true);
-    this._audio.playSound('town_music', 0.2);
+    this._audio.playSound('town_music', 0.1);
   }
 
   private updatePlayerState(): void {
