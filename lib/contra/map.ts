@@ -5,11 +5,13 @@ interface TileSet {
   name: string;
   tileWidth: number;
   tileHeight: number;
-  tiles?: { [key: number]: { 
-    image: HTMLImageElement;
-    width: number;
-    height: number;
-  }};
+  tiles?: {
+    [key: number]: {
+      image: HTMLImageElement;
+      width: number;
+      height: number;
+    };
+  };
   image?: HTMLImageElement;
   imageWidth?: number;
   imageHeight?: number;
@@ -31,6 +33,9 @@ export class GameMap {
   private layers: Layer[] = [];
   private tilesets: TileSet[] = [];
   public isLoaded: boolean = false;
+  private loadingProgress: number = 0;
+  private totalResources: number = 0;
+  private loadedResources: number = 0;
 
   public tileWidth: number = 0;
   public tileHeight: number = 0;
@@ -54,7 +59,7 @@ export class GameMap {
       name: tilesetData.name,
       tileWidth: parseInt(tilesetData.tilewidth),
       tileHeight: parseInt(tilesetData.tileheight),
-      isDecorative: tilesetData.columns === '0' || !tilesetData.columns
+      isDecorative: tilesetData.columns === '0' || !tilesetData.columns,
     };
 
     // Handle single image tileset
@@ -69,7 +74,7 @@ export class GameMap {
       tileset.image = image;
       tileset.imageWidth = parseInt(tilesetData.image.width);
       tileset.imageHeight = parseInt(tilesetData.image.height);
-      
+
       // For platform tileset, ensure columns is correctly set
       if (!tileset.isDecorative) {
         tileset.columns = Math.floor(tileset.imageWidth / tileset.tileWidth);
@@ -89,7 +94,7 @@ export class GameMap {
         tileset.tiles[parseInt(tile.id)] = {
           image,
           width: parseInt(tile.image.width),
-          height: parseInt(tile.image.height)
+          height: parseInt(tile.image.height),
         };
       }
     }
@@ -99,6 +104,7 @@ export class GameMap {
 
   async loadMap(mapPath: string) {
     try {
+      this.loadingProgress = 0;
       const response = await fetch(mapPath);
       const mapData = await response.text();
       const parser = new XMLParser({
@@ -114,17 +120,24 @@ export class GameMap {
       this.tileWidth = parseInt(mapInfo.tilewidth);
       this.tileHeight = parseInt(mapInfo.tileheight);
 
+      // Count total resources to load
+      this.totalResources = mapInfo.tileset.length;
+      this.loadedResources = 0;
+
       // Load tilesets first
       const tilesetPromises = mapInfo.tileset.map(async (tileset: any) => {
         const source = tileset.source.split('\\').pop();
-        return this.loadTilesetFromTSX(source, parseInt(tileset.firstgid));
+        const loadedTileset = await this.loadTilesetFromTSX(source, parseInt(tileset.firstgid));
+        this.loadedResources++;
+        this.loadingProgress = this.loadedResources / this.totalResources;
+        return loadedTileset;
       });
       this.tilesets = await Promise.all(tilesetPromises);
 
       // Load layers
       const layers = Array.isArray(mapInfo.layer) ? mapInfo.layer : [mapInfo.layer];
       this.layers = layers.map((layer: any) => {
-        const data = layer.data["#text"].trim().split(',').map(Number);
+        const data = layer.data['#text'].trim().split(',').map(Number);
         const layerData: number[][] = [];
         for (let y = 0; y < layer.height; y++) {
           layerData[y] = [];
@@ -142,6 +155,7 @@ export class GameMap {
       });
 
       this.isLoaded = true;
+      this.loadingProgress = 1;
     } catch (error) {
       console.error('Error loading map:', error);
       throw error;
@@ -195,6 +209,20 @@ export class GameMap {
   draw(context: CanvasRenderingContext2D, scale: number = 1): void {
     if (!this.isLoaded) return;
 
+    // Calculate map dimensions
+    const mapWidth = this.width * this.tileWidth * scale;
+    const mapHeight = this.height * this.tileHeight * scale;
+
+    // Calculate centering offsets
+    const offsetX = (context.canvas.width - mapWidth) / 2;
+    const offsetY = (context.canvas.height - mapHeight) / 2;
+
+    // Save current context state
+    context.save();
+    
+    // Apply centering transform
+    context.translate(offsetX, offsetY);
+
     // Draw all layers in order
     this.layers.forEach((layer) => {
       for (let y = 0; y < layer.height; y++) {
@@ -214,14 +242,12 @@ export class GameMap {
             // Handle oak_woods.tsx tileset (collection of images)
             if (tileset.isDecorative && tileset.tiles && tileset.tiles[localId]) {
               const tile = tileset.tiles[localId];
-              
+
               // Calculate scaled dimensions while maintaining aspect ratio
               const aspectRatio = tile.width / tile.height;
               let scaledWidth = tile.width * scale;
               let scaledHeight = tile.height * scale;
 
-              // Center horizontally and align bottom vertically
-              const centerX = destX + (this.tileWidth * scale - scaledWidth) / 2;
               const bottomY = destY + this.tileHeight * scale - scaledHeight;
 
               context.drawImage(
@@ -230,7 +256,7 @@ export class GameMap {
                 0,
                 tile.width,
                 tile.height,
-                Math.round(centerX),
+                Math.round(destX),
                 Math.round(bottomY),
                 scaledWidth,
                 scaledHeight
@@ -271,6 +297,9 @@ export class GameMap {
     });
 
     // this.drawDebugGrid(context, scale);
+
+    // Restore context state
+    context.restore();
   }
 
   private findTilesetForGid(gid: number): TileSet | undefined {
@@ -284,21 +313,8 @@ export class GameMap {
     return undefined;
   }
 
-  getTileAt(x: number, y: number, layerName?: string): number {
-    if (!this.isLoaded) return 0;
-
-    const layer = layerName ? this.layers.find((l) => l.name === layerName) : this.layers[0];
-
-    if (!layer) return 0;
-
-    const tileX = Math.floor(x / this.tileWidth);
-    const tileY = Math.floor(y / this.tileHeight);
-
-    if (tileX < 0 || tileX >= layer.width || tileY < 0 || tileY >= layer.height) {
-      return 0;
-    }
-
-    return layer.data[tileY][tileX];
+  getLoadingProgress(): number {
+    return this.loadingProgress;
   }
 
   isMapLoaded(): boolean {
