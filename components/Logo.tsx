@@ -35,7 +35,7 @@ const Logo = () => {
     game.addScene(logoScene);
     game.startGame();
 
-    return () => {
+    return () => { 
       if (game !== undefined) {
         game.destroy();
       }

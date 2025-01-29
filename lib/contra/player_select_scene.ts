@@ -16,6 +16,4 @@ export default class PlayerSelectScene extends Scene {
         throw new Error("Method not implemented.");
     }
 
-    
-
 }

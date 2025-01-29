@@ -1,7 +1,8 @@
 import SpriteAnimation from './game/animation';
 import Game from './game/game';
 import Scene from './game/scene';
-import SpriteSheet, { Sprite } from './game/sprite';
+import { Sprite } from './game/sprite';
+import SpriteSheet from './game/sprite_sheet';
 import MenuScene from './menu_scene';
 
 export default class LoadingScene extends Scene {
