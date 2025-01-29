@@ -1,9 +1,11 @@
 import Scene from '../game/scene';
 import Game from '../game/game';
 import { PlayerState, PlayerStateMachine } from './player_state_machine';
+import { GameMap } from './map';
 
 export default class ContraGameScene extends Scene {
   private _playerStateMachine: PlayerStateMachine;
+  private _map: GameMap;
   private _playerX: number = 100;
   private _playerY: number = 400;
   private _playerVelocityY: number = 0;
@@ -18,6 +20,7 @@ export default class ContraGameScene extends Scene {
   private readonly GRAVITY: number = 980;
   private readonly JUMP_FORCE: number = -500;
   private readonly MOVE_SPEED: number = 200;
+  private readonly MAP_SCALE: number = 3; // You can adjust this value as needed
 
   constructor(game: Game, sceneName: string, width: number, height: number) {
     super();
@@ -25,10 +28,12 @@ export default class ContraGameScene extends Scene {
     this.width = width;
     this.height = height;
     this._playerStateMachine = new PlayerStateMachine();
+    this._map = new GameMap();
   }
 
-  override init(): void {
-    this._playerStateMachine.loadResources();
+  override async init(): Promise<void> {
+    await this._playerStateMachine.loadResources();
+    await this._map.loadMap('assets/games/platformer/map/first_level.tmx');
   }
 
   private updatePlayerState(): void {
@@ -116,10 +121,13 @@ export default class ContraGameScene extends Scene {
   }
 
   override render(context: CanvasRenderingContext2D, deltaTime: number): void {
-    // Clear canvas
+    // Clear the canvas
     context.clearRect(0, 0, this.width, this.height);
     context.fillStyle = 'black';
     context.fillRect(0, 0, this.width, this.height);
+    context.imageSmoothingEnabled = false;
+
+    this._map.draw(context, this.MAP_SCALE);
 
     if (!this._playerStateMachine.isLoaded) {
       // Draw loading screen
@@ -154,7 +162,5 @@ export default class ContraGameScene extends Scene {
     }
   }
 
-  override destroy(): void {
-    // Clean up any resources
-  }
+  destroy(): void {}
 }
