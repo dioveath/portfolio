@@ -31,12 +31,38 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Saroj Rai | Full Stack Engineer</title>
+        <title>Saroj Rai | Full Stack Engineer & AI Developer</title>
         <meta
           name="description"
-          content="Full Stack Engineer specializing in AI-powered solutions and scalable systems"
+          content="Full Stack Engineer specializing in AI-powered solutions, SaaS platforms, and scalable systems. Expert in TypeScript, Python, and LLM technologies. Available for hire."
         />
+        <meta
+          name="keywords"
+          content="Full Stack Engineer, Software Engineer, AI Developer, TypeScript, Python, LLM, Portfolio, Tech Stack, For Hire, Software Development, Web Development, AI Solutions"
+        />
+        <meta name="author" content="Saroj Rai" />
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph tags for social media */}
+        <meta property="og:title" content="Saroj Rai | Full Stack Engineer & AI Developer" />
+        <meta
+          property="og:description"
+          content="Full Stack Engineer specializing in AI-powered solutions, SaaS platforms, and scalable systems. Expert in TypeScript, Python, and LLM technologies."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/assets/profile.png" />
+
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Saroj Rai | Full Stack Engineer & AI Developer" />
+        <meta
+          name="twitter:description"
+          content="Full Stack Engineer specializing in AI-powered solutions and scalable systems. Available for hire."
+        />
+        <meta name="twitter:image" content="/assets/profile.png" />
+
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://sarojrai.com" />
       </Head>
 
       <Navbar />
@@ -45,28 +71,31 @@ export default function Home() {
         <MotionBox {...fadeInUp}>
           <Box
             marginTop={'8'}
-            padding={'1.5rem 2.5rem'}
+            padding={{
+              base: '1rem',
+              md: '1.5rem 2.5rem',
+            }}
             borderRadius="lg"
             shadow="md"
-            bg={useColorModeValue('gray.200', 'darkviolet')}
+            bg={useColorModeValue('red.500', 'red.800')}
+            color="white"
             transition="all 0.3s ease"
             _hover={{ transform: 'translateY(-2px)', shadow: 'lg' }}
           >
-            <Text fontSize="lg" textAlign="center" lineHeight="tall">
-              I build robust, scalable systems using modern tools (Typescript/Python/LLMs), merging technical expertise
-              with AI innovation to deliver powerful solutions and real-world results.
+            <Text fontSize={{ base: 'md', md: 'lg' }} textAlign="center" lineHeight="tall">
+              Full Stack Engineer specializing in AI-powered solutions and SaaS platforms
             </Text>
           </Box>
         </MotionBox>
 
-        <Box height="2rem" />
+        <Box height="1rem" />
 
         <MotionFlex justifyContent="space-between" alignItems="center" {...fadeInUp}>
           <Box>
             <MotionText
               fontSize="4xl"
               fontWeight="700"
-              bgGradient="linear(to-r, blue.400, purple.500)"
+              bgGradient="linear(to-r, red.400, red.700)"
               bgClip="text"
               {...fadeInUp}
             >
@@ -79,7 +108,10 @@ export default function Home() {
           <Image
             alt="Saroj Avatar"
             src="assets/profile.png"
-            height="200px"
+            height={{
+              base: '160px',
+              md: '200px',
+            }}
             borderRadius="full"
             transition="transform 0.3s ease"
             _hover={{ transform: 'scale(1.05)' }}
@@ -90,27 +122,27 @@ export default function Home() {
 
         <MotionBox {...stagger}>
           {/* <FreeQuoteModal /> */}
-
-          <Box height="2rem" />
-
           <MotionBox {...fadeInUp}>
-            <Text fontSize="lg" letterSpacing="wide" mb="6">
+            <Text fontSize={{ base: 'md', md: 'lg' }} letterSpacing="wide" mb="6" fontWeight={'normal'}>
               I build robust, scalable systems using modern tools (Typescript/Python/LLMs), merging technical expertise
               with AI innovation to deliver powerful solutions and real-world results.
             </Text>
 
             <Text fontWeight="500" mb="4">
-              I&apos;ve
+              I&apos;ve:
             </Text>
-            <UnorderedList spacing="3" stylePosition="inside">
-              <ListItem>✔️ Shipped production-grade apps used by 1,000+ users</ListItem>
+            <UnorderedList spacing="0.5" stylePosition="inside">
+              <ListItem>✔️ Shipped SaaS apps used by 1,000+ users</ListItem>
+              <ListItem>
+                ✔️ Designed enterprise SaaS solution for businessess that manages 100k+ requests per month
+              </ListItem>
               <ListItem>✔️ Built AI-powered tools for process automation cutting operations time by 30%</ListItem>
             </UnorderedList>
 
             <Text fontWeight="500" mt="6" mb="4">
               Why tech leaders choose me:
             </Text>
-            <UnorderedList spacing="3" stylePosition="inside">
+            <UnorderedList spacing="0.5" stylePosition="inside">
               <ListItem>
                 🚀 Entrepreneurial mindset: Launched 2 tech ventures while mastering full-stack development{' '}
                 <Text as="span" fontSize="sm" color="gray.500">

@@ -35,7 +35,7 @@ export default class MenuScene extends Scene {
     this._audio.loadSound('assets/audios/menu_nav_up.wav', 'menu_nav_up', false);
     this._audio.loadSound('assets/audios/menu_nav_down.wav', 'menu_nav_down', false);
     this._audio.loadSound('assets/audios/game_over.wav', 'game_over', false);
-    this._audio.playSound('menu_music1', 0.2);
+    this._audio.playSound('menu_music1', 0.1);
   }
 
   update(deltaTime: number): void {
@@ -43,14 +43,14 @@ export default class MenuScene extends Scene {
       if (this.game.input.isKeyPressed(38)) {
         this._currentIndex--;
         this._navKeyPressed = true;
-        this._audio.playSound('menu_nav_up', 0.7);
+        this._audio.playSound('menu_nav_up', 0.2);
       } else if (this.game.input.isKeyPressed(40)) {
         this._currentIndex++;
         this._navKeyPressed = true;
-        this._audio.playSound('menu_nav_down', 0.7);
+        this._audio.playSound('menu_nav_down', 0.2);
       } else if (this.game.input.isKeyPressed(32) || this.game.input.isKeyPressed(13)) {
         this._navKeyPressed = true;
-        this._audio.playSound('game_over', 0.7);
+        this._audio.playSound('game_over', 0.2);
         this.game.replaceScene(new ContraGameScene(this.game, this.game.width, this.game.height));
       }
     } else {

@@ -26,10 +26,10 @@ type LinkItemProps = {
 
 const LinkItem = ({ href, path, target, children }: LinkItemProps) => {
   const active = path === href;
-  const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900');
+  const inactiveColor = useColorModeValue('gray.800', 'whiteAlpha.900');
   return (
     <NextLink href={href} passHref scroll={false} target={target}>
-      <Box p={2} bg={active ? 'teal.300' : undefined} color={active ? '#202023' : inactiveColor}>
+      <Box p={2} bg={active ? 'red.500' : undefined} color={active ? 'white' : inactiveColor}>
         {children}
       </Box>
     </NextLink>
@@ -39,7 +39,9 @@ const LinkItem = ({ href, path, target, children }: LinkItemProps) => {
 const Navbar = (props) => {
   const { path } = props;
   const isHideout = path === '/enterBase';
-  const bgValue = useColorModeValue('#ffffff40', '#20202380');
+  const bgValue = useColorModeValue('whiteAlpha.500', 'blackAlpha');
+  const borderBottom = useColorModeValue('1px solid', '1px solid');
+  const borderColor = useColorModeValue('gray.200', 'gray.800');
 
   if (isHideout) {
     return (
@@ -61,7 +63,10 @@ const Navbar = (props) => {
       bg={isHideout ? 'transparent' : bgValue}
       color={isHideout ? 'white' : 'inherit'}
       css={{ backdropFilter: 'blur(10px)' }}
+      shadow={isHideout ? 'none' : 'sm'}
       zIndex={1}
+      borderBottom={borderBottom}
+      borderColor={borderColor}
       {...props}
     >
       <Container
@@ -100,7 +105,7 @@ const Navbar = (props) => {
           </LinkItem>
         </Stack>
 
-        <Box flex={1}>
+        <Box>
           <ThemeToggleButton />
 
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>

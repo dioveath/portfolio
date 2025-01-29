@@ -67,7 +67,7 @@ export default class ContraGameScene extends Scene {
 
     // Draw loading text
     context.fillStyle = 'white';
-    context.font = '24px Arial';
+    context.font = '16px NesFont';
     context.textAlign = 'center';
     const loadingText = 'Loading...';
     context.fillText(loadingText, this.width / 2, this.height / 2);

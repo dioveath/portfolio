@@ -10,10 +10,11 @@ interface WorkCardProps {
 }
 
 const WorkCard = ({ work }: WorkCardProps) => {
-  const bgColor = useColorModeValue('white', 'gray.800');
-  const borderColor = useColorModeValue('gray.200', 'gray.700');
-  const color = useColorModeValue('gray.600', 'gray.300');
-  const linkColor = useColorModeValue('blue.500', 'blue.300');
+  const bgColor = useColorModeValue('white', 'gray.900');
+  const borderColor = useColorModeValue('gray.200', 'gray.800');
+  const color = useColorModeValue('gray.600', 'gray.100');
+  const linkColor = useColorModeValue('red.500', 'red.600');
+  const tagColorScheme = useColorModeValue('green', 'green');
 
   return (
     <MotionBox
@@ -47,7 +48,7 @@ const WorkCard = ({ work }: WorkCardProps) => {
               boxSize="40px"
               borderRadius="full"
               fallbackSrc="https://via.placeholder.com/40"
-              objectFit={"cover"}
+              objectFit={'cover'}
             />
             <Heading as="h3" size="md">
               {work.name}
@@ -64,7 +65,7 @@ const WorkCard = ({ work }: WorkCardProps) => {
                   key={tech}
                   size="md"
                   variant="subtle"
-                  colorScheme="blue"
+                  colorScheme={tagColorScheme}
                   display="flex"
                   alignItems="center"
                   gap={1}
