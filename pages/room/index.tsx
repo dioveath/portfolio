@@ -20,7 +20,7 @@ const ORBIT_CONTROLS_CONFIG = {
   // minAzimuthAngle: 0,
   // maxAzimuthAngle: Math.PI / 2,
   enableZoom: true,
-  enablePan: false,
+  enablePan: true,
 } as const;
 
 /**
@@ -92,7 +92,7 @@ export default function Room() {
         {/* Camera Setup */}
         <MouseOrbitCamera
           basePosition={new THREE.Vector3(...currentView.position)}
-          positionOffsetFactor={0.5}
+          positionOffsetFactor={1}
           hoveringEffect={!(isTransitioning || currentHotspotId !== null)}
         />
         <CameraController targetPosition={currentView} onTransitionComplete={handleTransitionComplete} />
@@ -113,6 +113,7 @@ export default function Room() {
         {/* {currentHotspotId === 'video_game' && (
           <OrbitControls {...ORBIT_CONTROLS_CONFIG} enableRotate={!isTransitioning} />
         )} */}
+
       </Canvas>
     </div>
   );
@@ -125,17 +126,15 @@ type MouseOrbitCameraProps = {
 };
 
 const MouseOrbitCamera = ({ basePosition, positionOffsetFactor, hoveringEffect }: MouseOrbitCameraProps) => {
-  const cameraRef = useRef<THREE.OrthographicCamera>(null);
+  const cameraRef = useRef<THREE.PerspectiveCamera>(null);
   const { mouse, size } = useThree();
-  // const basePosition = new THREE.Vector3(10, 10, 10);
-  // const positionOffsetFactor = 1.5;
-
+  
   useFrame(() => {
     if (cameraRef.current && hoveringEffect) {
       const { position, rotation, zoom } = cameraRef.current;
-      // console.log("Camera Position:", position.toArray());
-      // console.log("Camera Rotation:", rotation.toArray());
-      // console.log("Camera Zoom:", zoom);
+      // console.log('Camera Position:', position.toArray());
+      // console.log('Camera Rotation:', rotation.toArray());
+      // console.log('Camera Zoom:', zoom);
 
       const offsetX = mouse.x * positionOffsetFactor;
       const offsetY = mouse.y * positionOffsetFactor;
@@ -146,8 +145,6 @@ const MouseOrbitCamera = ({ basePosition, positionOffsetFactor, hoveringEffect }
   });
 
   return (
-    <>
-      <PerspectiveCamera makeDefault position={basePosition.toArray()} fov={50} near={1} far={100} />
-    </>
+    <PerspectiveCamera ref={cameraRef} makeDefault position={basePosition.toArray()} fov={50} near={1} far={100} />
   );
 };

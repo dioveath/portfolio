@@ -13,7 +13,7 @@ export interface Hotspot {
 }
 
 export const DEFAULT_ROOM_POSITION: CameraPosition = {
-  position: [15, 15, 15] as Vector3,
+  position: [10, 10, 10] as Vector3,
   lookAt: [0, 0, 0] as Vector3,
 } as const;
 
@@ -42,10 +42,10 @@ export const EXIT_ROOM_POSITION: CameraPosition = {
   lookAt: [-4, -4, -1] as Vector3,
 } as const;
 
-export const VIDEO_GAME_HOTSPOT_POSITION: Vector3 = [0.4, 0.5, 1] as Vector3;
-export const BED_HOTSPOT_POSITION: Vector3 = [-3.8, 1, 2] as Vector3;
-export const COMPUTER_HOTSPOT_POSITION: Vector3 = [-4.35, 1.4, -1.8] as Vector3;
-export const LIBRARY_HOTSPOT_POSITION: Vector3 = [-0.8, 2, -1.8] as Vector3;
+export const VIDEO_GAME_HOTSPOT_POSITION: Vector3 = [0.4, 0.5, 2.7] as Vector3;
+export const BED_HOTSPOT_POSITION: Vector3 = [-2.5, 0.5, 2] as Vector3;
+export const COMPUTER_HOTSPOT_POSITION: Vector3 = [-4, 0.5, -0.5] as Vector3;
+export const LIBRARY_HOTSPOT_POSITION: Vector3 = [-1, 0.5, -1] as Vector3;
 export const EXIT_HOTSPOT_POSITION: Vector3 = [4.4, 0.5, -2] as Vector3;
 
 export const HOTSPOTS: readonly Hotspot[] = [
