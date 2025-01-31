@@ -36,6 +36,8 @@ export default class MenuScene extends Scene {
     this._audio.loadSound('assets/audios/menu_nav_down.wav', 'menu_nav_down', false);
     this._audio.loadSound('assets/audios/game_over.wav', 'game_over', false);
     this._audio.playSound('menu_music1', 0.1);
+
+    console.log('menu scene init');
   }
 
   update(deltaTime: number): void {

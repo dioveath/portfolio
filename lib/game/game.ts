@@ -3,6 +3,8 @@ import Graphics from '../core/graphics';
 import Input from '../core/input';
 import Scene from './scene';
 
+import * as THREE from 'three';
+
 export default class Game {
   private _loopId: number;
   private _gameName: string;
@@ -13,6 +15,7 @@ export default class Game {
 
   private _width: number;
   private _height: number;
+  private _canvasTexture: THREE.CanvasTexture | null = null;
 
   get width() {
     return this._width;
@@ -91,7 +94,15 @@ export default class Game {
       this._scenes[i].render(this._graphics.context, deltaTime);
     }
 
+    if(this._canvasTexture) {
+      this._canvasTexture.needsUpdate = true;
+    }
+
     this._loopId = requestAnimationFrame(this.gameLoop.bind(this));
+  }
+
+  public setCanvasTexture(texture: THREE.CanvasTexture): void {
+    this._canvasTexture = texture;
   }
 
   public destroy(): void {
@@ -102,6 +113,11 @@ export default class Game {
     this._input.destroy();
     this._audio.destroy();
     window.cancelAnimationFrame(this._loopId);
+
+    if(this._canvasTexture) {
+      this._canvasTexture.dispose();
+    }
+
     console.log('destroying game');
   }
 }

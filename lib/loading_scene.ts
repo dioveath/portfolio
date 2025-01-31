@@ -31,6 +31,8 @@ export default class LoadingScene extends Scene {
       this._isLoaded = true;
       this._time = 0;
     };
+
+    console.log('loading scene init');
   }
 
   override update(deltaTime: number): void {

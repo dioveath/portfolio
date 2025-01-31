@@ -21,7 +21,7 @@ const config = {
 const styles = {
   global: props => ({
     body: {
-      bg: mode('gray.50', 'black')(props),
+      bg: mode('gray.50', '#111111')(props),
       color: mode('black', 'white')(props),
     },
   }),
