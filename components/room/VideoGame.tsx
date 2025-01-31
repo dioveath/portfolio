@@ -9,29 +9,12 @@ type VideoGameScreenProps = {
 };
 
 export function VideoGameScreen({ position3d }: VideoGameScreenProps) {
-  const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [texture, setTexture] = useState<THREE.CanvasTexture | null>(null);
-
-  // add a observer to the htmlcanvaselement with id video-game-canvas
-  const observer = useMemo(
-    () =>
-      new MutationObserver(() => {
-        const c = document.getElementById('video-game-canvas') as HTMLCanvasElement;
-        if (c) setCanvas(c);
-      }),
-    []
-  );
+  const gameRef = useRef<Game | null>(null);
 
   useEffect(() => {
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
-    return () => observer.disconnect();
-  }, [observer]);
-
-  useEffect(() => {
-    if (!canvas) {
+    if (!canvasRef.current) {
       const c = document.createElement('canvas');
       c.id = 'video-game-canvas';
       c.style.display = 'none';
@@ -41,35 +24,40 @@ export function VideoGameScreen({ position3d }: VideoGameScreenProps) {
       // c.style.transform = 'translate(-50%, -50%)';
       // c.style.zIndex = '100';
       document.body.appendChild(c);
-      setCanvas(c);
+      canvasRef.current = c;
     }
   }, []);
 
   useEffect(() => {
-    if (canvas === null) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
     const screenWidth = 960;
     const screenHeight = 720;
 
-    let game: Game = new Game('Saroj Rai | Games', canvas.id, screenWidth, screenHeight); // FIXME: 1 pixel off
-    let startScene: LoadingScene = new LoadingScene(game, 'Loading Scene', screenWidth, screenHeight);
-    game.addScene(startScene);
-    game.startGame();
+    gameRef.current = new Game('Saroj Rai | Games', canvas.id, screenWidth, screenHeight); // FIXME: 1 pixel off
+    let startScene: LoadingScene = new LoadingScene(gameRef.current, 'Loading Scene', screenWidth, screenHeight);
+    gameRef.current.addScene(startScene);
+    gameRef.current.startGame();
 
     const tex = new THREE.CanvasTexture(canvas);
     tex.minFilter = THREE.LinearFilter;
     tex.magFilter = THREE.LinearFilter;
     tex.anisotropy = 0;
     tex.generateMipmaps = false;
-    game.setCanvasTexture(tex);
+    gameRef.current.setCanvasTexture(tex);
     setTexture(tex);
 
     return () => {
-      if (game !== undefined) {
-        game.destroy();
-        canvas.remove();
+      if(gameRef.current !== null) {
+        gameRef.current.destroy();
+      }
+      if(canvasRef.current !== null) {
+        canvasRef.current.remove();
+        canvasRef.current = null;
       }
     };
-  }, [canvas]);
+  }, []);
 
   return (
     <>
