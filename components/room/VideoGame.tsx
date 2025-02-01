@@ -49,10 +49,10 @@ export function VideoGameScreen({ position3d }: VideoGameScreenProps) {
     setTexture(tex);
 
     return () => {
-      if(gameRef.current !== null) {
+      if (gameRef.current !== null) {
         gameRef.current.destroy();
       }
-      if(canvasRef.current !== null) {
+      if (canvasRef.current !== null) {
         canvasRef.current.remove();
         canvasRef.current = null;
       }
@@ -63,7 +63,7 @@ export function VideoGameScreen({ position3d }: VideoGameScreenProps) {
     <>
       <Fonts />
       <mesh position={position3d}>
-        <planeGeometry args={[2, 1.5]} />
+        <planeGeometry args={[1, 0.75]} />
         {texture === null ? null : <meshBasicMaterial map={texture} />}
       </mesh>
     </>

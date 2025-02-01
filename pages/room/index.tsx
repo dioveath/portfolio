@@ -104,17 +104,19 @@ export default function Room() {
           HOTSPOTS.map((hotspot) => <Hotspot key={hotspot.id} {...hotspot} onClick={handleHotspotClick} />)}
 
         {currentHotspotId === 'video_game' && !isTransitioning && (
-          // <VideoGameScreen position3d={new THREE.Vector3(...[0.4, 1, 0.3])} />
-          <NesEmulatorScreen romUrl={'/assets/nes/mario.nes'} position={new THREE.Vector3(...[0.4, 1, 0.3])} />
+          <NesEmulatorScreen romUrl={'/assets/nes/mario.nes'} position={new THREE.Vector3(...[0.4, 1, 1])} />
+        )}
+
+        { currentHotspotId === 'computer' && !isTransitioning && (
+          <VideoGameScreen position3d={new THREE.Vector3(...[-4.35, 1.2, -1.95])} />          
         )}
 
         {/* <gridHelper args={[20, 20, 'white', 'gray']} position={[0, -0.01, 0]} /> */}
 
         {/* Controls */}
-        {/* {currentHotspotId === 'video_game' && (
+        {/* {currentHotspotId === 'computer' && (
           <OrbitControls {...ORBIT_CONTROLS_CONFIG} enableRotate={!isTransitioning} />
         )} */}
-
       </Canvas>
     </div>
   );
@@ -129,7 +131,7 @@ type MouseOrbitCameraProps = {
 const MouseOrbitCamera = ({ basePosition, positionOffsetFactor, hoveringEffect }: MouseOrbitCameraProps) => {
   const cameraRef = useRef<THREE.PerspectiveCamera>(null);
   const { mouse, size } = useThree();
-  
+
   useFrame(() => {
     if (cameraRef.current && hoveringEffect) {
       const { position, rotation, zoom } = cameraRef.current;
