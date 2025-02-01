@@ -12,7 +12,7 @@ import {
 } from '../../components/room/types';
 import * as THREE from 'three';
 import { VideoGameScreen } from '../../components/room/VideoGame';
-import { SimpleCanvasTextureExample } from '../../components/room/SimpleTexture';
+import { NesEmulatorScreen } from '../../components/room/NesEmulatorScreen';
 
 const ORBIT_CONTROLS_CONFIG = {
   // maxPolarAngle: Math.PI / 2,
@@ -104,7 +104,8 @@ export default function Room() {
           HOTSPOTS.map((hotspot) => <Hotspot key={hotspot.id} {...hotspot} onClick={handleHotspotClick} />)}
 
         {currentHotspotId === 'video_game' && !isTransitioning && (
-          <VideoGameScreen position3d={new THREE.Vector3(...[0.4, 1, 0.3])} />
+          // <VideoGameScreen position3d={new THREE.Vector3(...[0.4, 1, 0.3])} />
+          <NesEmulatorScreen romUrl={'/assets/nes/mario.nes'} position={new THREE.Vector3(...[0.4, 1, 0.3])} />
         )}
 
         {/* <gridHelper args={[20, 20, 'white', 'gray']} position={[0, -0.01, 0]} /> */}
