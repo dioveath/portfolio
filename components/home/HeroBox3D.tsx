@@ -22,7 +22,7 @@ export default function HeroBox3D() {
         {colorMode === 'light' && (
           <>
             <pointLight position={[10, 10, 10]} intensity={2} />
-            <directionalLight position={[10, 10, 10]} intensity={5} />
+            <directionalLight position={[10, 10, 10]} intensity={2} />
             <directionalLight position={[0, 1, 2]} intensity={5} />
           </>
         )}

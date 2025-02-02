@@ -56,7 +56,7 @@ export default function NesTest() {
           </ModalBody>
         </ModalContent>
       </Modal>
-      {ready && <NesEmulator romUrl={rom} />}
+      {/* {ready && <NesEmulator romUrl={rom} />} */}
     </>
   );
 }
