@@ -95,6 +95,8 @@ export default function Home() {
         <FloatingPaths position={1} />
       </Box>
 
+      <HeroBox3D />
+
       <Flex
         as="main"
         minHeight="100vh"

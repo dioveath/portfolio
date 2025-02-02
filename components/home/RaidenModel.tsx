@@ -27,8 +27,8 @@ const ModelInstance = () => {
   useEffect(() => {
     clonedScene.traverse((node) => {
       if(node instanceof THREE.Mesh){
-        node.castShadow = true
-        node.receiveShadow = true
+        node.castShadow = false
+        node.receiveShadow = false
       }      
     })
     
