@@ -38,7 +38,7 @@ canvas {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: darkviolet;
+  background: darkred;
 }
 
 /* Handle on hover */

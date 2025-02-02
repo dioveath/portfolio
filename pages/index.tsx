@@ -1,13 +1,25 @@
 import Head from 'next/head';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import Navbar from '../components/Navbar';
-import { Box, Text, Flex, Wrap, UnorderedList, ListItem, Image, useColorModeValue, Grid } from '@chakra-ui/react';
-import Footer from '../components/Footer.js';
+import {
+  Box,
+  Text,
+  Flex,
+  Wrap,
+  UnorderedList,
+  ListItem,
+  Image,
+  useColorModeValue,
+  Grid,
+  Stack,
+} from '@chakra-ui/react';
+import Footer from '../components/Footer';
 import FreeQuoteModal from '../components/FreeQuoteModal';
 import Link from 'next/link';
 import works from '../data/work_data';
 import WorkCard from '../components/WorkCard';
 import { motion } from 'framer-motion';
+import HeroBox3D from '../components/home/HeroBox3D';
 
 const MotionBox = motion(Box);
 const MotionFlex = motion(Flex);
@@ -67,8 +79,14 @@ export default function Home() {
 
       <Navbar />
 
-      <Box as="main" minHeight="100vh" padding={{ base: '4rem 2rem', md: '4rem 4rem', xl: '4rem 20rem' }}>
-        <MotionBox {...fadeInUp}>
+      <Box
+        as="main"
+        minHeight="100vh"
+        padding={{ sm: '3rem 1rem', base: '3rem 2rem', md: '3rem 3rem', xl: '3rem 8rem' }}
+        maxWidth={'1280'}
+        margin={'auto'}
+      >
+        {/* <MotionBox {...fadeInUp}>
           <Box
             marginTop={'8'}
             padding={{
@@ -86,102 +104,131 @@ export default function Home() {
               Full Stack Engineer specializing in AI-powered solutions and SaaS platforms
             </Text>
           </Box>
-        </MotionBox>
+        </MotionBox> */}
 
         <Box height="1rem" />
 
-        <MotionFlex justifyContent="space-between" alignItems="center" {...fadeInUp}>
-          <Box>
-            <MotionText
-              fontSize="4xl"
-              fontWeight="700"
-              bgGradient="linear(to-r, red.400, red.700)"
-              bgClip="text"
-              {...fadeInUp}
-            >
-              Saroj Rai
-            </MotionText>
-            <MotionText fontSize="xl" fontWeight="500" color={useColorModeValue('gray.600', 'gray.300')} {...fadeInUp}>
-              Full Stack Engineer
-            </MotionText>
-          </Box>
-          <Image
-            alt="Saroj Avatar"
-            src="assets/profile.png"
-            height={{
-              base: '160px',
-              md: '200px',
-            }}
-            borderRadius="full"
-            transition="transform 0.3s ease"
-            _hover={{ transform: 'scale(1.05)' }}
-          />
-        </MotionFlex>
+        <Box>
+          <MotionFlex justifyContent="space-between" alignItems="center" {...fadeInUp}>
+            <Box>
+              <MotionText
+                fontSize="4xl"
+                fontWeight="700"
+                bgGradient="linear(to-r, red.400, red.700)"
+                bgClip="text"
+                {...fadeInUp}
+              >
+                Saroj Rai
+              </MotionText>
+              <MotionText
+                fontSize="xl"
+                fontWeight="500"
+                color={useColorModeValue('gray.600', 'gray.300')}
+                {...fadeInUp}
+              >
+                Full Stack Engineer
+              </MotionText>
+              <Wrap spacing="4rem" marginTop={'1rem'}>
+              <Link href="https://github.com/dioveath" target="_blank">
+                <Box
+                  as={BsGithub}
+                  size={30}
+                  transition="all 0.3s ease"
+                  _hover={{ transform: 'translateY(-2px)', color: 'blue.400' }}
+                />
+              </Link>
+              <Link href="https://www.linkedin.com/in/saroj-rai-11739a110/" target="_blank">
+                <Box
+                  as={BsLinkedin}
+                  size={30}
+                  transition="all 0.3s ease"
+                  _hover={{ transform: 'translateY(-2px)', color: 'blue.400' }}
+                />
+              </Link>
+            </Wrap>
+            </Box>
+            <Image
+              alt="Saroj Avatar"
+              src="assets/profile.png"
+              height={{
+                base: '160px',
+                md: '200px',
+              }}
+              borderRadius="full"
+              transition="transform 0.3s ease"
+              _hover={{ transform: 'scale(1.05)' }}
+            />
+            {/* <HeroBox3D /> */}
+          </MotionFlex>
 
-        <Box height="1px" my="8" bgGradient="linear(to-r, transparent, gray.500, transparent)" />
+          <Box height="1px" my="4" bgGradient="linear(to-r, transparent, gray.500, transparent)" />
 
-        <MotionBox {...stagger}>
-          {/* <FreeQuoteModal /> */}
-          <MotionBox {...fadeInUp}>
-            <Text fontSize={{ base: 'md', md: 'lg' }} letterSpacing="wide" mb="6" fontWeight={'normal'}>
-              I build robust, scalable systems using modern tools (Typescript/Python/LLMs), merging technical expertise
-              with AI innovation to deliver powerful solutions and real-world results.
-            </Text>
+          <MotionBox {...stagger}>
+            {/* <FreeQuoteModal /> */}
+            <MotionBox {...fadeInUp}>
+              <Text fontSize={{ base: 'md', md: 'lg' }} letterSpacing="wide" mb="6" fontWeight={'normal'}>
+                I build robust, scalable systems using modern tools (Typescript/Python/LLMs), merging technical
+                expertise with AI innovation to deliver powerful solutions and real-world results.
+              </Text>
 
-            <Text fontWeight="500" mb="4">
-              I&apos;ve:
-            </Text>
-            <UnorderedList spacing="0.5" stylePosition="inside">
-              <ListItem>✔️ Shipped SaaS apps used by 1,000+ users</ListItem>
-              <ListItem>
-                ✔️ Designed enterprise SaaS solution for businessess that manages 100k+ requests per month
-              </ListItem>
-              <ListItem>✔️ Built AI-powered tools for process automation cutting operations time by 30%</ListItem>
-            </UnorderedList>
+              <Text fontWeight="500" mb="4">
+                I&apos;ve:
+              </Text>
+              <UnorderedList spacing="0.5" stylePosition="inside">
+                <ListItem>✔️ Shipped SaaS apps used by 1,000+ users</ListItem>
+                <ListItem>
+                  ✔️ Designed enterprise SaaS solution for businessess that manages 100k+ requests per month
+                </ListItem>
+                <ListItem>✔️ Built AI-powered tools for process automation cutting operations time by 30%</ListItem>
+              </UnorderedList>
 
-            <Text fontWeight="500" mt="6" mb="4">
-              Why tech leaders choose me:
-            </Text>
-            <UnorderedList spacing="0.5" stylePosition="inside">
-              <ListItem>
-                🚀 Entrepreneurial mindset: Launched 2 tech ventures while mastering full-stack development{' '}
-                <Text as="span" fontSize="sm" color="gray.500">
-                  (self-funded)
-                </Text>
-              </ListItem>
-              <ListItem>🤖 AI fluency: Design LLM-enhanced apps and RAG systems, (LangChain/OpenAI/Pinecone)</ListItem>
-              <ListItem>⚡ Rapid execution: Deliver MVP-to-scale solutions 40% faster than agency benchmarks</ListItem>
-            </UnorderedList>
+              <Text fontWeight="500" mt="6" mb="4">
+                Why tech leaders choose me:
+              </Text>
+              <UnorderedList spacing="0.5" stylePosition="inside">
+                <ListItem>
+                  🚀 Growth mindset: Launched 2 tech ventures while mastering full-stack development{' '}
+                  <Text as="span" fontSize="sm" color="gray.500">
+                    (self-funded)
+                  </Text>
+                </ListItem>
+                <ListItem>
+                  🤖 AI fluency: Design LLM-enhanced apps and RAG systems, (LangChain/OpenAI/Pinecone)
+                </ListItem>
+                <ListItem>
+                  ⚡ Rapid execution: Deliver MVP-to-scale solutions 40% faster than agency benchmarks
+                </ListItem>
+              </UnorderedList>
+            </MotionBox>
           </MotionBox>
-        </MotionBox>
 
-        <Box height="2rem" />
+          {/* <Box height="2rem" />
+          <MotionBox {...fadeInUp}>
+            <Text fontSize="xl" fontWeight="600" mb="4">
+              Find me on
+            </Text>
+            <Wrap spacing="4rem">
+              <Link href="https://github.com/dioveath" target="_blank">
+                <Box
+                  as={BsGithub}
+                  size={30}
+                  transition="all 0.3s ease"
+                  _hover={{ transform: 'translateY(-2px)', color: 'blue.400' }}
+                />
+              </Link>
+              <Link href="https://www.linkedin.com/in/saroj-rai-11739a110/" target="_blank">
+                <Box
+                  as={BsLinkedin}
+                  size={30}
+                  transition="all 0.3s ease"
+                  _hover={{ transform: 'translateY(-2px)', color: 'blue.400' }}
+                />
+              </Link>
+            </Wrap>
+          </MotionBox> */}
+        </Box>
 
-        <MotionBox {...fadeInUp}>
-          <Text fontSize="xl" fontWeight="600" mb="4">
-            Find me on
-          </Text>
-          <Wrap spacing="4rem">
-            <Link href="https://github.com/dioveath" target="_blank">
-              <Box
-                as={BsGithub}
-                size={30}
-                transition="all 0.3s ease"
-                _hover={{ transform: 'translateY(-2px)', color: 'blue.400' }}
-              />
-            </Link>
-            <Link href="https://www.linkedin.com/in/saroj-rai-11739a110/" target="_blank">
-              <Box
-                as={BsLinkedin}
-                size={30}
-                transition="all 0.3s ease"
-                _hover={{ transform: 'translateY(-2px)', color: 'blue.400' }}
-              />
-            </Link>
-          </Wrap>
-        </MotionBox>
-
-        <Box height="4rem" />
+        {/* <Box height="4rem" />
 
         <MotionBox {...fadeInUp}>
           <Text fontSize="2xl" fontWeight="600" mb="6">
@@ -192,10 +239,9 @@ export default function Home() {
               <WorkCard key={index} work={work} />
             ))}
           </Grid>
-        </MotionBox>
+        </MotionBox> */}
+        <Footer />
       </Box>
-
-      <Footer />
     </>
   );
 }
