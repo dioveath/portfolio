@@ -13,6 +13,7 @@ import {
 import * as THREE from 'three';
 import { VideoGameScreen } from '../../components/room/VideoGame';
 import { NesEmulatorScreen } from '../../components/room/NesEmulatorScreen';
+import { Button } from '@chakra-ui/react';
 
 const ORBIT_CONTROLS_CONFIG = {
   // maxPolarAngle: Math.PI / 2,
@@ -68,19 +69,15 @@ export default function Room() {
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
       {currentHotspotId && !isTransitioning && (
-        <button
+        <Button
           onClick={handleExitClick}
-          style={{
-            position: 'absolute',
-            top: 20,
-            left: 20,
-            padding: '10px 20px',
-            cursor: 'pointer',
-            zIndex: 1000,
-          }}
+          position={'absolute'}
+          top={'2rem'}
+          left={'2rem'}
+          zIndex={1000}
         >
           Go back
-        </button>
+        </Button>
       )}
 
       <Canvas shadows gl={{ antialias: true }}>

@@ -4,6 +4,7 @@ import { Hotspot as HotspotType } from './types';
 import { useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import * as THREE from 'three';
+import { Box } from '@chakra-ui/react';
 
 interface HotspotProps extends Omit<HotspotType, 'cameraPosition'> {
   onClick: (id: string) => void;
@@ -14,8 +15,9 @@ const labelStyles = {
   padding: '5px 10px',
   borderRadius: '5px',
   color: 'white',
-  transform: 'scale(0.5)',
+  transform: 'scale(0.8)',
   pointerEvents: 'none' as const,
+  width: 'max-content'
 };
 
 export const Hotspot = ({ position, name, onClick, id }: HotspotProps) => {
@@ -37,10 +39,10 @@ export const Hotspot = ({ position, name, onClick, id }: HotspotProps) => {
       <ModelInstance />
       <mesh onPointerOver={handlePointerOver} onPointerOut={handlePointerOut} onClick={() => onClick(id)}>
         <sphereGeometry args={[0.2, 32, 32]} />
-        <meshBasicMaterial color={hovered ? '#ff0000' : '#ffffff'} transparent opacity={0.6} />
+        <meshBasicMaterial color={hovered ? '#0044ff' : '#ffffff'} transparent opacity={0.6} />
       </mesh>
       <Html position={[0, 0.5, 0]} center style={{ pointerEvents: 'none' }}>
-        <div
+        <Box
           style={{
             ...labelStyles,
             opacity: hovered ? 1 : 0,
@@ -48,7 +50,7 @@ export const Hotspot = ({ position, name, onClick, id }: HotspotProps) => {
           }}
         >
           {name}
-        </div>
+        </Box>
       </Html>
     </group>
   );

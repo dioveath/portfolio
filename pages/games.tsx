@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import { Flex, Grid, Box, Text } from '@chakra-ui/react';
 
-import Footer from '../components/Footer.js';
+import Footer from '../components/Footer';
 import WorkCard from '../components/WorkCard';
 import games from '../data/games_data';
 

@@ -15,9 +15,9 @@ export default function HeroBox3D() {
   if (!isHydrated) return null;
 
   return (
-    // <Box zIndex={0} w="100%" h="100%" position={'fixed'} top={'50%'} left={'50%'} transform={'translate(-50%, -50%)'} bg={'black'}>
-    <Box>
-      <Canvas shadows gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping }}>
+    <Box zIndex={10} w="100%" h="100%" position={'fixed'} top={'0%'} right={'0%'}>
+    {/* <Box bg='whiteAlpha.100'> */}
+      <Canvas shadows gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping }} style={{ pointerEvents: 'none' }}>
         <ambientLight intensity={5} args={['#ffffff', 1]} />
         <pointLight position={[10, 10, 10]} intensity={2} castShadow />
         <directionalLight castShadow position={[10, 10, 10]} intensity={5} />
@@ -26,7 +26,8 @@ export default function HeroBox3D() {
 
         <RaidenModel position={new THREE.Vector3(0, 0, 0)} />
 
-        <PerspectiveCamera makeDefault position={[0, 0.9, 5]} fov={30} near={0.5} far={100} />
+        <PerspectiveCamera makeDefault position={[1, 1.5, 2]} fov={30} near={0.5} far={100} rotation={[0, Math.PI/4, 0]}/>
+        {/* <PerspectiveCamera makeDefault position={[0, 0.9, 5]} fov={30} near={0.5} far={100} /> */}
         {/* <Plane args={[100, 100]} rotation={[-Math.PI / 2, 0, 0]} position={[0, -1, 0]}>
           <meshStandardMaterial color="gray" />
         </Plane>        

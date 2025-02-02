@@ -100,7 +100,7 @@ const Navbar = (props) => {
           <LinkItem target="_blank" href="https://bluecharicha.wordpress.com" path={path}>
             Posts
           </LinkItem>
-          <LinkItem href="/hideout" path={path}>
+          <LinkItem href="/room" path={path}>
             Hide Out
           </LinkItem>
         </Stack>
