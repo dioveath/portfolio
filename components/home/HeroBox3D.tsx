@@ -16,9 +16,9 @@ export default function HeroBox3D() {
   if (!isHydrated) return null;
 
   return (
-    <Box zIndex={10} w="100%" h="100%" position={'fixed'} top={'0%'} right={'0%'} style={{ pointerEvents: 'none' }}>
+    <Box w="100%" h="100%" position={'fixed'} top={'0%'} right={'0%'} pointerEvents={'none'}>
       {/* <Box bg='whiteAlpha.100'> */}
-      <Canvas gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping }} style={{ pointerEvents: 'none' }}>
+      <Canvas gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping }} style={{ pointerEvents: 'none' }} >
         {colorMode === 'light' && (
           <>
             <pointLight position={[10, 10, 10]} intensity={2} />
@@ -32,11 +32,11 @@ export default function HeroBox3D() {
           <>
             <ambientLight intensity={10} color="#555555" />
             {/* // magenta */}
-            <pointLight intensity={50} color="#ff0088" position={[2, 4, 2]} />
+            <pointLight intensity={40} color="#ff0088" position={[2, 4, 2]} />
             {/* // cyan */}
             <pointLight intensity={50} color="#00ffff" position={[-2, 4, -2]} />
             {/* // purple/violet */}
-            <spotLight intensity={50} color="#ff00ff" position={[0, 5, 0]} angle={0.3} penumbra={0.5} />
+            <spotLight intensity={45} color="#ff00ff" position={[0, 5, 0]} angle={0.3} penumbra={0.5} />
           </>
         )}
 

@@ -81,6 +81,7 @@ export default function Home() {
 
       <Navbar />
 
+      <HeroBox3D />
       <Box
         position={'absolute'}
         top={0}
@@ -95,7 +96,7 @@ export default function Home() {
         <FloatingPaths position={1} />
       </Box>
 
-      <HeroBox3D />
+      
 
       <Flex
         as="main"
