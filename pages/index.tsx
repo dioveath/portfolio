@@ -12,6 +12,7 @@ import {
   useColorModeValue,
   Grid,
   Stack,
+  useMediaQuery,
 } from '@chakra-ui/react';
 import Footer from '../components/Footer';
 import FreeQuoteModal from '../components/FreeQuoteModal';
@@ -42,6 +43,8 @@ const stagger = {
 };
 
 export default function Home() {
+  const [isDesktop] = useMediaQuery('(min-width: 1024px)');
+  
   return (
     <>
       <Head>
@@ -81,7 +84,8 @@ export default function Home() {
 
       <Navbar />
 
-      <HeroBox3D />
+      {isDesktop && (<HeroBox3D />)}
+      
       <Box
         position={'absolute'}
         top={0}
@@ -102,7 +106,7 @@ export default function Home() {
         as="main"
         minHeight="100vh"
         direction={'column'}
-        padding={{ sm: '4rem 1rem', base: '4rem 2rem', md: '4rem 3rem', xl: '4rem 8rem' }}
+        padding={{ sm: '5rem 1rem 0', base: '5rem 2rem 0', md: '4rem 3rem 0', xl: '4rem 8rem 0' }}
         maxWidth={'1280'}
         margin={'auto'}
       >

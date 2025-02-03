@@ -54,13 +54,12 @@ const ModelInstance = () => {
       const availableActions: { [key: string]: THREE.AnimationAction } = {};
       gltf.animations.forEach((animation) => {
         const action = actions[animation.name];
-        console.log("animation: ", animation.name)
         if (action) {
           availableActions[animation.name] = action;
         }
       })
 
-      stateMachineRef.current = new AnimationStateMachine(mixer, availableActions, 'idle');
+      stateMachineRef.current = new AnimationStateMachine(mixer, availableActions, 'kneeling_to_standing');
 
       stateMachineRef.current.addTransition({
         from: ['idle'],
@@ -87,14 +86,8 @@ const ModelInstance = () => {
         blendDuration: 0.7,
         loop: true
       })
-      
-      
     }
 
-    // if(actions["idle"]){
-    //   actions["idle"].setLoop(THREE.LoopRepeat, Infinity)
-    //   actions["idle"].play()
-    // }
   }, [actions, clonedScene]);
 
   useFrame(() => {

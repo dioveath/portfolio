@@ -13,15 +13,12 @@ export default function Footer() {
   return (
     <footer
       style={{
-        paddingTop: '2rem',
+        padding: '1rem',
       }}
     >
       <Link href="https://raisaroj360.com.np">
         <MotionFlex direction={"column"} justifyContent="space-between" alignItems="center" {...fadeInUp}  >
           <span> Copyright &copy; 2022 Saroj Rai. All Rights Reserved</span>
-          {/* <span>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span> */}
         </MotionFlex>
       </Link>
     </footer>
