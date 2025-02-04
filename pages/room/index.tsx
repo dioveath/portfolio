@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { OrbitControls, OrthographicCamera, PerspectiveCamera, Sky } from '@react-three/drei';
+import { OrbitControls, OrthographicCamera, PerspectiveCamera, Sky, ContactShadows } from '@react-three/drei';
 import { RoomModel } from '../../components/room/RoomModel';
 import { CameraController } from '../../components/room/CameraController';
 import { Hotspot } from '../../components/room/Hotspot';
@@ -14,6 +14,9 @@ import * as THREE from 'three';
 import { VideoGameScreen } from '../../components/room/VideoGame';
 import { NesEmulatorScreen } from '../../components/room/NesEmulatorScreen';
 import { Button } from '@chakra-ui/react';
+import SkySphere from '@/components/room/SkySphere';
+import { Bloom, DepthOfField, EffectComposer, Noise, Vignette } from '@react-three/postprocessing';
+import { WindowsPC3DScreen } from '@/components/room/PCScreen';
 
 const ORBIT_CONTROLS_CONFIG = {
   // maxPolarAngle: Math.PI / 2,
@@ -69,13 +72,7 @@ export default function Room() {
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
       {currentHotspotId && !isTransitioning && (
-        <Button
-          onClick={handleExitClick}
-          position={'absolute'}
-          top={'2rem'}
-          left={'2rem'}
-          zIndex={1000}
-        >
+        <Button onClick={handleExitClick} position={'absolute'} top={'2rem'} left={'2rem'} zIndex={1000}>
           Go back
         </Button>
       )}
@@ -83,8 +80,21 @@ export default function Room() {
       <Canvas shadows gl={{ antialias: true }}>
         {/* Lighting */}
         <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} intensity={1} castShadow />
-        {/* <Sky sunPosition={[100, 20, 100]} /> */}
+        <pointLight
+          position={[10, 10, 10]}
+          intensity={1}
+          castShadow
+          shadow-mapSize={{ width: 2048, height: 2048 }}
+          shadow-camera-near={1}
+          shadow-camera-far={50}
+          shadow-camera-left={-10}
+          shadow-camera-right={10}
+          shadow-camera-top={10}
+          shadow-camera-bottom={-10}
+        />
+        <ContactShadows position={[0, -0.2, 0]} opacity={0.5} scale={10} blur={2} far={10} />
+
+        <SkySphere />
 
         {/* Camera Setup */}
         <MouseOrbitCamera
@@ -104,10 +114,17 @@ export default function Room() {
           <NesEmulatorScreen romUrl={'/assets/nes/mario.nes'} position={new THREE.Vector3(...[0.4, 1, 1])} />
         )}
 
-        { currentHotspotId === 'computer' && !isTransitioning && (
-          <VideoGameScreen position3d={new THREE.Vector3(...[-4.35, 1.2, -1.95])} />          
+        {currentHotspotId === 'computer' && !isTransitioning && (
+          // <VideoGameScreen position3d={new THREE.Vector3(...[-4.35, 1.2, -1.95])} />
+          <WindowsPC3DScreen position={[-4.35, 1.4, -2.0]} />
         )}
 
+        {/* <EffectComposer> */}
+        {/* <DepthOfField focusDistance={0} focalLength={0.02} bokehScale={2} height={480} /> */}
+        {/* <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} /> */}
+        {/* <Noise opacity={0.02} /> */}
+        {/* <Vignette eskil={false} offset={0.1} darkness={1.1} /> */}
+        {/* </EffectComposer> */}
         {/* <gridHelper args={[20, 20, 'white', 'gray']} position={[0, -0.01, 0]} /> */}
 
         {/* Controls */}
@@ -145,6 +162,6 @@ const MouseOrbitCamera = ({ basePosition, positionOffsetFactor, hoveringEffect }
   });
 
   return (
-    <PerspectiveCamera ref={cameraRef} makeDefault position={basePosition.toArray()} fov={50} near={1} far={100} />
+    <PerspectiveCamera ref={cameraRef} makeDefault position={basePosition.toArray()} fov={50} near={1} far={1000} />
   );
 };

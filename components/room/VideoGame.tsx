@@ -62,7 +62,7 @@ export function VideoGameScreen({ position3d }: VideoGameScreenProps) {
   return (
     <>
       <Fonts />
-      <mesh position={position3d}>
+      <mesh position={position3d} scale={1}>
         <planeGeometry args={[1, 0.75]} />
         {texture === null ? null : <meshBasicMaterial map={texture} />}
       </mesh>
