@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-import { ContactShadows } from '@react-three/drei';
+import { ContactShadows, OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import SkySphere from './SkySphere';
 import { MouseOrbitCamera } from './MouseOrbitCamera';
@@ -11,6 +11,13 @@ import { Hotspot } from './Hotspot';
 import { NesEmulatorScreen } from './NesEmulatorScreen';
 import WindowsPC3DScreen from './PCScreen';
 import { RoomAmbientAudioLayers } from './RoomAmbientAudioLayers';
+import { VideoGameScreen } from './VideoGame';
+
+const ORBIT_CONTROLS_CONFIG = {
+  enableRotate: true,
+  enableZoom: true,
+  enablePan: true,
+};
 
 type RoomSceneProps = {
   currentView: CameraPosition;
@@ -68,9 +75,13 @@ export default function RoomScene({
         <NesEmulatorScreen romUrl={'/assets/nes/mario.nes'} position={new THREE.Vector3(...[0.4, 1, 1])} />
       )}
 
-      {currentHotspotId === 'computer' && !isTransitioning && (
-        // <VideoGameScreen position3d={new THREE.Vector3(...[-4.35, 1.2, -1.95])} />
-        <WindowsPC3DScreen position={[-4.35, 1.4, -2.0]} />
+      {currentHotspotId === 'computer' && !isTransitioning && <WindowsPC3DScreen position={[-4.35, 1.4, -2.0]} />}
+
+      {currentHotspotId === 'bed' && !isTransitioning && (
+        <VideoGameScreen 
+        position3d={new THREE.Vector3(...[-3.7, 1.55, 2])}
+        rotation3d={new THREE.Euler(0, -Math.PI/4+0.07, 0)}
+         />
       )}
 
       {/* <EffectComposer> */}
@@ -82,7 +93,7 @@ export default function RoomScene({
       {/* <gridHelper args={[20, 20, 'white', 'gray']} position={[0, -0.01, 0]} /> */}
 
       {/* Controls */}
-      {/* {currentHotspotId === 'computer' && (
+      {/* {currentHotspotId === 'bed' && (
           <OrbitControls {...ORBIT_CONTROLS_CONFIG} enableRotate={!isTransitioning} />
         )} */}
     </Canvas>

@@ -24,7 +24,7 @@ export const VIDEO_GAME_ROOM_POSITION: CameraPosition = {
 
 export const BED_ROOM_POSITION: CameraPosition = {
   position: [-4.5, 1.5, 3] as Vector3,
-  lookAt: [0, 0, -2] as Vector3,
+  lookAt: [0, 1.4, -2] as Vector3,
 } as const;
 
 export const COMPUTER_ROOM_POSITION: CameraPosition = {

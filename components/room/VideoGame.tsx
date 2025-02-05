@@ -6,9 +6,10 @@ import Fonts from '../../config/fonts';
 
 type VideoGameScreenProps = {
   position3d: THREE.Vector3;
+  rotation3d?: THREE.Euler;
 };
 
-export function VideoGameScreen({ position3d }: VideoGameScreenProps) {
+export function VideoGameScreen({ position3d, rotation3d = new THREE.Euler() }: VideoGameScreenProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [texture, setTexture] = useState<THREE.CanvasTexture | null>(null);
   const gameRef = useRef<Game | null>(null);
@@ -62,7 +63,8 @@ export function VideoGameScreen({ position3d }: VideoGameScreenProps) {
   return (
     <>
       <Fonts />
-      <mesh position={position3d} scale={1}>
+      
+      <mesh position={position3d} rotation={rotation3d} scale={1}>
         <planeGeometry args={[1, 0.75]} />
         {texture === null ? null : <meshBasicMaterial map={texture} />}
       </mesh>
