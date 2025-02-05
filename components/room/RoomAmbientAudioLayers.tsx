@@ -28,6 +28,7 @@ export const RoomAmbientAudioLayers = ({ active, fadeDuration }: AudioLayersProp
         listener={listener}
         position={[10, 5, -15]}
         isActive={active}
+        minVolume={0.05}
         maxVolume={0.1}
         fadeDuration={fadeDuration}
         autoplay
@@ -38,6 +39,7 @@ export const RoomAmbientAudioLayers = ({ active, fadeDuration }: AudioLayersProp
         listener={listener}
         position={[10, 5, -15]}
         isActive={active}
+        minVolume={0.05}
         maxVolume={0.75}
         fadeDuration={fadeDuration}
         autoplay

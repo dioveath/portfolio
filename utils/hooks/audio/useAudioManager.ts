@@ -1,10 +1,12 @@
 // useAudioManager.ts
 import { useEffect, useState } from 'react';
 import * as THREE from 'three';
+import { useSfx } from './useSfx';
 
 export function useAudioManager() {
   const [listener, setListener] = useState<THREE.AudioListener | null>(null);
   const [audioState, setAudioState] = useState<string | null>(null);
+  const playSfx = useSfx(listener);
 
   useEffect(() => {
     if (!listener && document) {
@@ -29,6 +31,7 @@ export function useAudioManager() {
             console.error(err);
           });
       }
+      playSfx('/assets/audios/sfx/poke_tap.mp3');
       console.log(listener.context.state);
     };
 

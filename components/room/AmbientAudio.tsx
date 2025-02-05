@@ -16,6 +16,7 @@ interface AmbientAudioProps {
 
   // Optional volume (max volume). So if you have multiple layers,
   // you can set e.g. cityNoiseVolume = 0.3, windVolume = 0.05, etc.
+  minVolume?: number;
   maxVolume?: number;
 }
 
@@ -28,6 +29,7 @@ export function AmbientAudio({
   loop = true,
   distance = 15,
   autoplay = false,
+  minVolume = 0,
   maxVolume = 1,
 }: AmbientAudioProps) {
   const audioRef = useRef<THREE.PositionalAudio>(null);
@@ -48,7 +50,7 @@ export function AmbientAudio({
 
     // Starting volume might be whatever was left from the last fade
     const startVolume = audio.getVolume();
-    const endVolume = isActive ? maxVolume : 0;
+    const endVolume = isActive ? maxVolume : minVolume;
     const startTime = performance.now();
 
     function fadeVolume(currentTime: number) {
