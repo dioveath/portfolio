@@ -31,7 +31,7 @@ export function useAudioManager() {
             console.error(err);
           });
       }
-      playSfx('/assets/audios/sfx/poke_tap.mp3');
+      // playSfx('/assets/audios/sfx/poke_tap.mp3');
       console.log(listener.context.state);
     };
 
