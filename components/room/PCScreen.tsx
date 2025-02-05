@@ -34,7 +34,7 @@ export function WindowsPC3DScreen({ position = [0, 0, 0] }: { position?: [number
       <Html transform occlude position={position} scale={[0.5, 0.5, 1]} distanceFactor={1}>
         <div style={{ padding: '4rem', backgroundColor: 'rgba(100,100,100,1)', borderRadius: '1rem' }}>
           <iframe
-            src="http://localhost:3000"
+            src="https://webwindowspc.vercel.app/"
             title="Windows PC"
             style={{ width: '1280px', height: '1024px', border: 'none' }}
           />
