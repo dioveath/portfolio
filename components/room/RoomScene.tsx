@@ -72,7 +72,7 @@ export default function RoomScene({
         HOTSPOTS.map((hotspot) => <Hotspot key={hotspot.id} {...hotspot} onClick={handleHotspotClick} />)}
 
       {currentHotspotId === 'video_game' && !isTransitioning && (
-        <NesEmulatorScreen romUrl={'/assets/nes/mario.nes'} position={new THREE.Vector3(...[0.4, 1, 1])} />
+        <NesEmulatorScreen romUrl={'/assets/nes/kunio-kun-soccer.nes'} position={new THREE.Vector3(...[0.4, 1, 1])} />
       )}
 
       {currentHotspotId === 'computer' && !isTransitioning && <WindowsPC3DScreen position={[-4.35, 1.4, -2.0]} />}
